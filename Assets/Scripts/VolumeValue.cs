@@ -16,6 +16,8 @@ public class VolumeValue : MonoBehaviour
         audioSource.volume = musicVolume;
     }
 
+    //variableAudioSource.pitch = Random.Range(0.9f, 1.1f);
+
     public void SetVolume(float vol) 
     {
         musicVolume = vol;
