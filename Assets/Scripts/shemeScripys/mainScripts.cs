@@ -61,9 +61,3 @@ public class sCamera
         camera.orthographicSize += zoom;
     }
 }
-
-public class PlatformerController2D
-{
-    Rigidbody2D rb2d;
-    public void 
-}
