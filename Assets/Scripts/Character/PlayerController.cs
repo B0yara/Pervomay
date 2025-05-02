@@ -1,6 +1,116 @@
+using System.ComponentModel;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {
+    [Header("Movement")]
+    public float MoveSpeed = 5f;     // Скорость движения
+    public float RotationSpeed = 10f; // Скорость поворота
+    private float _currentSpeed;      // Текущая скорость
+
+    [Header("Combo Settings")]
+    [SerializeField] private float comboTimeWindow = 0.5f; // Время между ударами
+    [SerializeField] private int maxComboSteps = 3; // Макс. число ударов в комбо
+    [SerializeField] private Animator animator;
+    [SerializeField] private KeyCode attackKey = KeyCode.Mouse0;
+
+    private int currentComboStep = 0;
+    private float lastAttackTime = 0f;
+    private bool isAttacking = false;
+    private bool CachedAttack = false;
+
+
+    private Rigidbody rb;
+    private Vector3 _movement;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
+    }
+
+
+    private void Update()
+    {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        _movement = new Vector3(horizontal, 0f, vertical).normalized;
+
+        if (Input.GetKeyDown(attackKey))
+        {
+            Attack();
+        }
+
+
+    }
+
+    private void Attack()
+    {
+        if (isAttacking)
+        {
+            CachedAttack = true;
+            return; // Если уже атакуем, кэшируем удар
+        }
+
+        isAttacking = true;
+        animator.ResetTrigger("EndAttack");
+        animator.SetInteger("ComboStep", currentComboStep);
+        animator.SetTrigger("Attack");
+
+
+
+    }
+
+    void EncreseComboStep()
+    {
+        if (currentComboStep < 2)
+        {
+            currentComboStep++;
+        }
+        else
+        {
+            currentComboStep = 0;
+        }
+    }
+
+
+    private void OnEndAttack()
+    {
+        isAttacking = false;
+        if (CachedAttack)
+        {
+            EncreseComboStep();
+            Debug.Log("End Attack: contionue");
+            CachedAttack = false;
+            Attack(); // Если есть кэшированный удар, выполняем его
+        }
+        else
+        {
+            Debug.Log("End Attack: reset");
+            animator.SetTrigger("EndAttack");
+            animator.ResetTrigger("Attack");
+            currentComboStep = 0;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (_movement.magnitude > 0.1f) // Если есть движение
+        {
+            // Перемещение
+            rb.linearVelocity = _movement * MoveSpeed;
+
+            // Поворот в сторону движения
+            Quaternion targetRotation = Quaternion.LookRotation(_movement);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, RotationSpeed * Time.fixedDeltaTime);
+        }
+        else
+        {
+            rb.linearVelocity = Vector3.zero; // Остановка, если нет ввода
+        }
+    }
+
 
 }
