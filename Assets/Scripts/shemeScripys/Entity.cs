@@ -31,7 +31,7 @@ public class Entity : _CanDamage
     protected bool isDead = false;
     protected Transform currentTarget;
     protected float nextAttackTime;
-    protected bool isAttacking = false;
+    public bool isAttacking = false;
 
 
     [Header("Target and AI")]
@@ -44,6 +44,7 @@ public class Entity : _CanDamage
     public virtual void SetTarget(Transform target)
     {
         CurrentTarget = target;
+        animator.SetInteger("indexAnimation", 1);
     }
 
     protected virtual void Start()
@@ -196,7 +197,7 @@ public class Entity : _CanDamage
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
-    protected virtual void StartAnimation(int animNumber)
+    public void StartAnimation(int animNumber)
     {
         animator.SetInteger("indexAnimation", animNumber);
         if (animNumber == 2) isAttacking = true;

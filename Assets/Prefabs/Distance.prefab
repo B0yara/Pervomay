@@ -68,7 +68,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 7043d37b0e29fba4c9b3cb2e1dfd229c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -167,11 +167,11 @@ MonoBehaviour:
   deathAnimParam: Die
   detectionRange: 1000
   attackRange: 30
-  attackRate: 0.2
+  attackRate: 1
   attackDamage: 10
   projectilePrefab: {fileID: 1245642433524767249, guid: cb7f7cc0b0a04fa40ba3533217b008bf, type: 3}
   attackPoint: {fileID: 441257257039713747}
-  stoppingDistance: 1
+  safeDistance: 15
 --- !u!1 &1589350695877084021
 GameObject:
   m_ObjectHideFlags: 0
