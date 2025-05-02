@@ -5,6 +5,8 @@ public class EntityEnemy : Entity
     [Header("Enemy Settings")]
     public float stoppingDistance = 1f; // Дистанция остановки перед целью
 
+    private Vector3 direction;
+
     protected override void Start()
     {
         base.Start();
@@ -23,17 +25,19 @@ public class EntityEnemy : Entity
     {
         if (CurrentTarget == null) return;
 
+        UpdateRotation();
+
         float distance = Vector3.Distance(transform.position, CurrentTarget.position);
 
         // Двигаемся только если цель вне радиуса атаки
-        if (distance > attackRange - stoppingDistance)
+        if (distance > attackRange)
         {
-            Vector3 direction = (CurrentTarget.position - transform.position).normalized;
-            Move(direction);
+            Vector3 moveDirection = (CurrentTarget.position - transform.position).normalized;
+            controller.Move(moveDirection * moveSpeed * Time.deltaTime);
         }
         else
         {
-            Move(Vector3.zero); // Останавливаемся для атаки
+            controller.Move(Vector3.zero); // Останавливаемся для атаки
         }
     }
 

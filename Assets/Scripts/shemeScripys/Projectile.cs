@@ -30,6 +30,22 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Im Find Collider");
+        if (((1 << other.gameObject.layer) & targetLayer) != 0)
+        {
+            if (other.transform == target)
+            {
+                if (target.TryGetComponent<_CanDamage>(out var damageable))
+                {
+                    damageable.GetDamage(damage);
+                }
+            }
+            Destroy(gameObject);
+        }
+    }
+    private void OnCollisionEnter(Collision other)
+    {
+        Debug.Log("Im Find Collision");
         if (((1 << other.gameObject.layer) & targetLayer) != 0)
         {
             if (other.transform == target)

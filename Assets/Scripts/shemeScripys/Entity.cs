@@ -9,12 +9,10 @@ public class Entity : _CanDamage
     public float moveSpeed = 5f;
     public float rotationSpeed = 10f;
     public float gravity = -9.81f;
-    public float jumpHeight = 2f;
 
     [Header("Animation Settings")]
-    public Animator animator;
-    public string moveAnimParam = "Speed";
-    public string groundedAnimParam = "Grounded";
+    public string moveAnimParam = "Run";
+    public string groundedAnimParam = "Null";
     public string deathAnimParam = "Die";
 
     [Header("Combat Settings")]
@@ -24,7 +22,6 @@ public class Entity : _CanDamage
     public int attackDamage = 10;
     public Projectile projectilePrefab;
     public Transform attackPoint;
-    public LayerMask targetLayer;
 
 
 
@@ -104,11 +101,14 @@ public class Entity : _CanDamage
         // 3. В радиусе атаки
         // 4. Нет препятствий между нами и целью
 
-        if (CurrentTarget == null || Time.time < nextAttackTime || isAttacking) return false;
+        if (CurrentTarget == null || isDead || isAttacking) return false;
+        if (Time.time < nextAttackTime) return false;
         float distance = Vector3.Distance(transform.position, CurrentTarget.position);
+
         if (distance > attackRange) return false;
 
         RaycastHit hit;
+        
         if (Physics.Raycast(transform.position,
                        (CurrentTarget.position - transform.position).normalized,
                        out hit,
@@ -122,11 +122,15 @@ public class Entity : _CanDamage
     }
     protected virtual void Attack()
     {
+        // Устанавливаем время следующей атаки
+        nextAttackTime = Time.time + 1f / attackRate;
+        isAttacking = true;
+        
     }
     protected virtual void LaunchProjectile()
     {
         Projectile projectile = Instantiate(projectilePrefab, attackPoint.position, attackPoint.rotation);
-        projectile.Initialize(attackDamage, CurrentTarget, targetLayer);
+        projectile.Initialize(attackDamage, CurrentTarget, faction.enemyMask);
     }
     // Вызывается из анимации атаки (для ближников)
     public virtual void OnAttackAnimationHit()
@@ -167,6 +171,21 @@ public class Entity : _CanDamage
 
             // Движение
             controller.Move(direction.normalized * moveSpeed * Time.deltaTime);
+        }
+    }
+
+    protected virtual void UpdateRotation()
+    {
+        if (currentTarget == null) return;
+
+        Vector3 direction = (CurrentTarget.position - transform.position).normalized;
+        direction.y = 0;
+
+        if (direction.magnitude > 0.1f)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation,
+                targetRotation, rotationSpeed * Time.deltaTime);
         }
     }
     protected void HandleGravity()

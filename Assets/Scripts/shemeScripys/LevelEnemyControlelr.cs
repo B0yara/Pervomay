@@ -46,15 +46,4 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    // Метод для координации групповых атак
-    public void CoordinateAttack(Vector3 targetPosition)
-    {
-        foreach (var enemy in activeEnemies)
-        {
-            if (Vector3.Distance(enemy.transform.position, targetPosition) < enemy.detectionRange)
-            {
-                // Логика координации атаки
-            }
-        }
-    }
 }
