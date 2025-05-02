@@ -14,13 +14,11 @@ public class EntityEnemy : Entity
         faction.enemyMask = LayerMask.GetMask("Player", "Ally");
         EnemyController.Instance.RegisterEnemy(this);
     }
-
     protected override void Update()
     {
         base.Update();
         UpdateAI();
     }
-
     protected override void HandleMovement()
     {
         if (CurrentTarget == null) return;
