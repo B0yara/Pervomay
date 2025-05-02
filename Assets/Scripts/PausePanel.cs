@@ -4,6 +4,8 @@ public class PausePanel : MonoBehaviour
 {
     private const string MusicVolumeKey = "MusicVolume";
 
+    private const string VFXVolumeKey = "VFXVolume";
+
     public AudioMixerGroup Mixer;
 
 
@@ -25,9 +27,15 @@ public class PausePanel : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    public void ChangeVolume(float volume)
+    public void ChangeVolumeMusic(float volume)
     {
-        Mixer.audioMixer.SetFloat(MusicVolumeKey, Mathf.Lerp(-70, 5, volume));
+        Mixer.audioMixer.SetFloat(MusicVolumeKey, Mathf.Lerp(-70, 0, volume));
+        //PlayerPrefs.SetFloat("MusicVolume", volume);
+    }
+
+    public void ChangeVolumeVFX(float volume)
+    {
+        Mixer.audioMixer.SetFloat(VFXVolumeKey, Mathf.Lerp(-70, 0, volume));
         //PlayerPrefs.SetFloat("MusicVolume", volume);
     }
 
