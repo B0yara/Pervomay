@@ -54,6 +54,14 @@ public static class Moveble
         t.position = t.position + sens;
     }
 }
+
+public static class Damage
+{
+    public static void ToDamageInt(Entity entity, int damage)
+    {
+        entity.GetDamage(damage);
+    }
+}
 public class sCamera
 {
     public void OrthoZoom(Camera camera, float zoom)

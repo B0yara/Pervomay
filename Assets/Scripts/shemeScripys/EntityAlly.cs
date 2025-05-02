@@ -1,16 +1,23 @@
 using UnityEngine;
 
-public class EntityAlly : MonoBehaviour
+public class EntityAlly : Entity
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected override void Start()
     {
-        
+        base.Start();
+        faction.factionType = Faction.FactionType.Ally;
+        faction.enemyMask = LayerMask.GetMask("Enemy");
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void HandleMovement()
     {
-        
+        // Реализация движения союзников (NPC или управляемых сущностей)
+        // Можно оставить пустым для статичных NPC или добавить логику патрулирования
+    }
+
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+        // Дополнительная логика при уничтожении союзника
     }
 }
