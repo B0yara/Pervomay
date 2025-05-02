@@ -45,7 +45,6 @@ public class PlayerEntity : Entity
 
         HandleDash();
     }
-
     private void GetInput()
     {
         moveInput = new Vector2(

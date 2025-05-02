@@ -55,9 +55,8 @@ public class PlayerController : MonoBehaviour
         }
 
         isAttacking = true;
-        animator.ResetTrigger("EndAttack");
-        animator.SetInteger("ComboStep", currentComboStep);
-        animator.SetTrigger("Attack");
+        animator.SetBool("isAttack", true);
+
 
 
 
@@ -89,8 +88,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             Debug.Log("End Attack: reset");
-            animator.SetTrigger("EndAttack");
-            animator.ResetTrigger("Attack");
+            animator.SetBool("isAttack", false);
             currentComboStep = 0;
         }
     }
