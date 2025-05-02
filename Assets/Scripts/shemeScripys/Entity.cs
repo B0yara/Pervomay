@@ -22,7 +22,7 @@ public class Entity : _CanDamage
     protected bool isDead = false;
 
     // Тип сущности
-    public enum EntityType { Ally, Enemy }
+    public enum EntityType { Static, Ally, Enemy }
     public EntityType entityType;
 
     protected virtual void Start()
