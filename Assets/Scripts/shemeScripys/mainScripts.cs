@@ -30,6 +30,12 @@ public class Moveble
         now.y = now.y + sens;
         t.position = now;
     }
+    public void MoveZ(Transform t, float sens)
+    {
+        Vector3 now = t.position;
+        now.z = now.z + sens;
+        t.position = now;
+    }
     /// <summary>
     /// Передвижение по 2D полю
     /// </summary>
@@ -41,6 +47,11 @@ public class Moveble
         nowPosition.x = nowPosition.x + sens.x;
         nowPosition.y = nowPosition.y + sens.y;
         t.position = nowPosition;
+    }
+    public void Move3D(Transform t, Vector3 sens)
+    {
+        Vector3 nowPosition = t.position;
+        t.position = t.position + sens;
     }
 }
 public class sCamera
