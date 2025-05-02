@@ -6,7 +6,7 @@ public class mainScripts : MonoBehaviour
 
 }
 
-public class Moveble
+public class Moveble : MonoBehaviour
 {
     /// <summary>
     /// Передвижение по X 
