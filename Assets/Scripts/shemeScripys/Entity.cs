@@ -3,35 +3,56 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class Entity : _CanDamage
 {
+    public Faction faction;
+
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
     public float rotationSpeed = 10f;
     public float gravity = -9.81f;
-    public float jumpHeight = 2f;
 
     [Header("Animation Settings")]
-    public Animator animator;
-    public string moveAnimParam = "Speed";
-    public string jumpAnimParam = "Jump";
-    public string groundedAnimParam = "Grounded";
+    public string moveAnimParam = "Run";
+    public string groundedAnimParam = "Null";
     public string deathAnimParam = "Die";
+
+    [Header("Combat Settings")]
+    public float detectionRange = 10f;
+    public float attackRange = 1f;
+    public float attackRate = 1f;
+    public int attackDamage = 10;
+    public Projectile projectilePrefab;
+    public Transform attackPoint;
+
+
 
     protected CharacterController controller;
     protected Vector3 velocity;
     protected bool isGrounded;
     protected bool isDead = false;
+    protected Transform currentTarget;
+    protected float nextAttackTime;
+    protected bool isAttacking = false;
 
+
+    [Header("Target and AI")]
+    public Transform CurrentTarget
+    {
+        get => currentTarget;
+        protected set => currentTarget = value;
+    }
     // Тип сущности
-    public enum EntityType { Static, Ally, Enemy }
-    public EntityType entityType;
+    public virtual void SetTarget(Transform target)
+    {
+        CurrentTarget = target;
+    }
 
     protected virtual void Start()
     {
         controller = GetComponent<CharacterController>();
-        if (animator == null)
-            animator = GetComponentInChildren<Animator>();
-    }
+        animator ??= GetComponentInChildren<Animator>();
 
+
+    }
     protected virtual void Update()
     {
         if (isDead) return;
@@ -41,11 +62,105 @@ public class Entity : _CanDamage
         UpdateAnimations();
     }
 
+    protected virtual void UpdateAI()
+    {
+        FindTarget();
+        if (CanAttack()) Attack();
+    }
+    protected virtual void FindTarget()
+    {
+        if (CurrentTarget != null && CurrentTarget.gameObject.activeInHierarchy)
+            return;
+
+        var closestTarget = FindClosestTarget();
+        if (closestTarget != null)
+            SetTarget(closestTarget);
+    }
+    private Transform FindClosestTarget()
+    {
+        Collider[] targets = Physics.OverlapSphere(transform.position, detectionRange, faction.enemyMask);
+        Transform closest = null;
+        float minDistance = Mathf.Infinity;
+
+        foreach (var target in targets)
+        {
+            float distance = Vector3.Distance(transform.position, target.transform.position);
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                closest = target.transform;
+            }
+        }
+        return closest;
+    }
+    protected virtual bool CanAttack()
+    {
+        // Условия атаки:
+        // 1. Цель существует и жива
+        // 2. Не на кулдауне
+        // 3. В радиусе атаки
+        // 4. Нет препятствий между нами и целью
+
+        if (CurrentTarget == null || isDead || isAttacking) return false;
+        if (Time.time < nextAttackTime) return false;
+        float distance = Vector3.Distance(transform.position, CurrentTarget.position);
+
+        if (distance > attackRange) return false;
+
+        RaycastHit hit;
+        
+        if (Physics.Raycast(transform.position,
+                       (CurrentTarget.position - transform.position).normalized,
+                       out hit,
+                       attackRange,
+                       faction.enemyMask))
+        {
+            return hit.transform == CurrentTarget;
+        }
+
+        return false;
+    }
+    protected virtual void Attack()
+    {
+        // Устанавливаем время следующей атаки
+        nextAttackTime = Time.time + 1f / attackRate;
+        isAttacking = true;
+        
+    }
+    protected virtual void LaunchProjectile()
+    {
+        Projectile projectile = Instantiate(projectilePrefab, attackPoint.position, attackPoint.rotation);
+        projectile.Initialize(attackDamage, CurrentTarget, faction.enemyMask);
+    }
+    // Вызывается из анимации атаки (для ближников)
+    public virtual void OnAttackAnimationHit()
+    {
+        if (!isAttacking) return;
+
+        // Проверяем, все ли еще цель в зоне поражения
+        if (CanAttack())
+        {
+            if (CurrentTarget.TryGetComponent<_CanDamage>(out var damageable))
+            {
+                damageable.GetDamage(attackDamage);
+            }
+        }
+
+        isAttacking = false;
+    }
+    // Визуализация луча в редакторе
+    private void OnDrawGizmosSelected()
+    {
+        if (CurrentTarget != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawLine(transform.position, transform.position + (CurrentTarget.position - transform.position).normalized * attackRange);
+        }
+    }
     protected virtual void HandleMovement()
     {
         // Базовое движение (переопределяется в наследниках)
     }
-
     protected void Move(Vector3 direction)
     {
         if (direction.magnitude > 0.1f)
@@ -59,6 +174,20 @@ public class Entity : _CanDamage
         }
     }
 
+    protected virtual void UpdateRotation()
+    {
+        if (currentTarget == null) return;
+
+        Vector3 direction = (CurrentTarget.position - transform.position).normalized;
+        direction.y = 0;
+
+        if (direction.magnitude > 0.1f)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation,
+                targetRotation, rotationSpeed * Time.deltaTime);
+        }
+    }
     protected void HandleGravity()
     {
         isGrounded = controller.isGrounded;
@@ -71,17 +200,6 @@ public class Entity : _CanDamage
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
-
-    protected void Jump()
-    {
-        if (isGrounded)
-        {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-            if (animator != null && !string.IsNullOrEmpty(jumpAnimParam))
-                animator.SetTrigger(jumpAnimParam);
-        }
-    }
-
     protected virtual void UpdateAnimations()
     {
         if (animator == null) return;
@@ -93,7 +211,6 @@ public class Entity : _CanDamage
         // Передаем состояние "на земле"
         animator.SetBool(groundedAnimParam, isGrounded);
     }
-
     public override void Die()
     {
         if (isDead) return;
@@ -114,14 +231,8 @@ public class Entity : _CanDamage
         Destroy(gameObject, 5f);
     }
 
-    // Метод для проверки типа сущности
-    public bool IsEnemy()
+    protected virtual void OnDestroy()
     {
-        return entityType == EntityType.Enemy;
-    }
 
-    public bool IsAlly()
-    {
-        return entityType == EntityType.Ally;
     }
 }

@@ -6,6 +6,7 @@ public class _CanDamage : MonoBehaviour
     public int maxHP = 100;
     public int hp = 100;
     public Animation deathAnimation;
+    public Animator animator;
 
     private void Start()
     {
