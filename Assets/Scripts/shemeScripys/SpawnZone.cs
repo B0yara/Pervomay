@@ -21,10 +21,6 @@ public class SpawnZone : MonoBehaviour
     {
         _spawnSystem.Play();
     }
-    private void Start()
-    {
-        CreateEnemy();
-    }
 
 
 

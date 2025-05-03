@@ -21,7 +21,15 @@ public class RangeEnemy : EntityEnemy
         {
             moveDirection = (transform.position - CurrentTarget.position).normalized;
         }
+        else
+        {
+            if (animator.GetInteger("indexAnimation") != 2)
+            {
+                animator.SetInteger("indexAnimation", 2);
+            }
+        }
         controller.Move(moveDirection * moveSpeed * Time.deltaTime);
+
     }
     protected override bool CanAttack()
     {
@@ -33,8 +41,8 @@ public class RangeEnemy : EntityEnemy
 
         if (CurrentTarget == null || isDead || isAttacking) return false;
         if (Time.time < nextAttackTime) return false;
-        float distance = Vector3.Distance(transform.position, CurrentTarget.position);
 
+        float distance = Vector3.Distance(transform.position, CurrentTarget.position);
         if (distance > attackRange) return false;
 
         RaycastHit hit;
