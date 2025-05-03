@@ -18,13 +18,13 @@ public class PausePanel : MonoBehaviour
         {
             Mixer = GameObject.Find("MusicPlayer").GetComponent<AudioMixerGroup>();
         }
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
         //InMenu.TransitionTo(0,5f);
     }
 
     private void OnDisable()
     {
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
     }
 
     public void ChangeVolumeMusic(float volume)
