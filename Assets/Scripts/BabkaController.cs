@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BabkaController : MonoBehaviour
 {
-
+    
     private const string OPEN_DIALOG_HINT = "Нжмите 'E'";
     private const string NEXT_DIALOG_HINT = "Далее 'E'";
     private const string CLOSE_DIALOG_HINT = "Закрыть 'E'";

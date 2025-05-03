@@ -18,23 +18,17 @@ EditorBuildSettings:
     path: Assets/Scenes/GriBOYrio0.unity
     guid: a0709bdc5fb013548bf10f667b8ad319
   - enabled: 1
-    path: Assets/Scenes/1lvl.unity
-    guid: 6a4e6423ebedfae4bbbd0802c43fcb79
+    path: Assets/Scenes/GriBOYrio1.unity
+    guid: dbf0697b2aa83c542955323b8b2527a5
   - enabled: 1
-    path: Assets/Scenes/2lvl.unity
-    guid: 2c965047333f8c042998e098bb2c4e36
+    path: Assets/Scenes/GriBOYrio2.unity
+    guid: 16d369a6d1b76d64ab1c2ad1cfea628a
   - enabled: 1
-    path: Assets/Scenes/3lvl.unity
-    guid: d4af9c9b3cebb904caea888d5c3e2cad
-  - enabled: 1
-    path: Assets/Scenes/boss.unity
-    guid: 6928002321dc1e041909d399c8ee0eae
+    path: Assets/Scenes/GriBOYrio3.unity
+    guid: 6d2cad8e8fcd80345b109edddc794902
   - enabled: 1
     path: Assets/Scenes/eggsscene.unity
     guid: e100ef68df6946b48bc5ee8109a147b4
-  - enabled: 1
-    path: Assets/Scenes/GriBOYrio1.unity
-    guid: dbf0697b2aa83c542955323b8b2527a5
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
