@@ -11,9 +11,9 @@ public class PlayerEntity : Entity
     private float nextActionTime = 0f;
     public float interval = 5f;
 
-    public KeyCode attackKey        =     KeyCode.Z;
-    public KeyCode heavyAttackKey   =     KeyCode.X;
-    public KeyCode dashKey          =     KeyCode.C;
+    public KeyCode attackKey = KeyCode.Z;
+    public KeyCode heavyAttackKey = KeyCode.X;
+    public KeyCode dashKey = KeyCode.C;
 
     private Vector2 moveInput;
     private bool isDashing;
@@ -68,7 +68,7 @@ public class PlayerEntity : Entity
                 animator.SetBool("Run", false);
             }
         }
-        
+
 
 
 
@@ -82,7 +82,7 @@ public class PlayerEntity : Entity
         {
             Vector3 direction = new Vector3(moveInput.x, 0, moveInput.y).normalized;
 
-            // Поворот
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             if (direction.magnitude > 0.1f)
             {
                 Quaternion targetRotation = Quaternion.LookRotation(direction);
@@ -93,16 +93,16 @@ public class PlayerEntity : Entity
                 );
             }
 
-            // Движение с учетом гравитации
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             Vector3 move = direction * moveSpeed;
             move.y = velocity.y;
             controller.Move(move * Time.deltaTime);
 
-            // Анимация движения
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             if (animator != null)
                 animator.SetFloat(moveAnimParam, direction.magnitude);
         }
-       
+
     }
     private void HandleAttacks()
     {
@@ -127,10 +127,10 @@ public class PlayerEntity : Entity
         animator.SetBool("Attack", false);
         isAttacking = false;
     }
-    // Вызывается если всё ок
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅ
     private void HandleDash()
     {
-        // Чуть позже всё будет в Animator
+        // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ Animator
         if (dashInput && !isDashing && !isAttacking)
         {
             canDamage = false;
@@ -142,7 +142,7 @@ public class PlayerEntity : Entity
             {
 
             }
-            
+
             moveSpeed = standardMoveSpeed * dashSpeedMultiplier;
 
         }
@@ -167,7 +167,7 @@ public class PlayerEntity : Entity
             faction.enemyMask);
     }
 
-    // Отключаем ненужные AI-методы
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ AI-пїЅпїЅпїЅпїЅпїЅпїЅ
     protected override void UpdateAI() { }
     protected override void FindTarget() { }
     protected override bool CanAttack() => false;
@@ -175,8 +175,8 @@ public class PlayerEntity : Entity
     protected override void OnDestroy()
     {
         base.OnDestroy();
-        GameController contr = GameObject.Find("GameController").GetComponent<GameController>();
-        contr.EndGame();
+
+        GameController.Instance.GameOver();
 
     }
 }

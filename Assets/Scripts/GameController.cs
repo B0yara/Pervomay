@@ -3,17 +3,14 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    [SerializeField]
+    GameObject GameOverPanel;
 
-    GameController _instance;
-    public GameController Instance
+    static GameController _instance;
+    public static GameController Instance
     {
         get
         {
-            if (_instance == null)
-            {
-                _instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
             return _instance;
         }
     }
@@ -32,16 +29,18 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {
-
+        GameOverPanel.SetActive(true);
     }
 
     public void ContinueGame()
     {
+        GameOverPanel.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void MainMenu()
     {
+        GameOverPanel.SetActive(false);
         SceneManager.LoadScene(1);
     }
 
