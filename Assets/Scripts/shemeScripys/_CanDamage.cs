@@ -41,7 +41,15 @@ public class _CanDamage : MonoBehaviour
         // Ïנמגונךא םא סלונעü
         if (hp <= 0)
         {
-            deathParticleSystem.Play();
+            try
+            {
+                deathParticleSystem.Play();
+            }
+            catch
+            {
+                Debug.Log("ÑÌÅÐÒÜ ÀÍÈÌÀÖÈÈ");
+            }
+            
             hp = 0;
             Die(0);
         }

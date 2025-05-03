@@ -7,6 +7,7 @@ public class Entity : _CanDamage
 
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
+    public float standardMoveSpeed = 5f;
     public float rotationSpeed = 10f;
     public float gravity = -9.81f;
 

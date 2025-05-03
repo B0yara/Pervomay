@@ -26,7 +26,7 @@ public class PlayerEntity : Entity
 
 
     [Header("AnimationTimings")]
-    public float dashSpeedMultiplier = 10f;
+    public float dashSpeedMultiplier = 2f;
     public int heavyAttackMultiplier = 2;
 
     protected override void Start()
@@ -100,10 +100,20 @@ public class PlayerEntity : Entity
     // Вызывается если всё ок
     private void HandleDash()
     {
+        // Чуть позже всё будет в Animator
         if (dashInput && !isDashing && !isAttacking)
         {
             canDamage = false;
-            animator.SetBool("Dash", true);
+            try
+            {
+                animator.SetBool("Dash", true);
+            }
+            catch
+            {
+
+            }
+            
+            moveSpeed = standardMoveSpeed * dashSpeedMultiplier;
 
         }
     }
@@ -111,6 +121,7 @@ public class PlayerEntity : Entity
     {
         animator.SetBool("Dash", false);
         canDamage = true;
+        moveSpeed = standardMoveSpeed;
     }
 
     private void LighZone()
