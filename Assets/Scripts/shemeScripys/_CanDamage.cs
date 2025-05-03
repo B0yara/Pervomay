@@ -31,10 +31,6 @@ public class _CanDamage : MonoBehaviour
             }
             CheckHP();
         }   
-        if (isDamaged)
-        {
-
-        }
     }
 
     public void AnimDamage()

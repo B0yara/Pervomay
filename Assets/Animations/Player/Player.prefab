@@ -3060,7 +3060,7 @@ MonoBehaviour:
     factionType: 0
     enemyMask:
       serializedVersion: 2
-      m_Bits: 0
+      m_Bits: 256
   moveSpeed: 10
   standardMoveSpeed: 10
   rotationSpeed: 10
@@ -3104,7 +3104,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3584685417104910998, guid: 10f7d7dce1ec4104aaff90cd5fd1e0b8, type: 3}
       propertyPath: m_Size.x
-      value: 40
+      value: 49.39456
       objectReference: {fileID: 0}
     - target: {fileID: 3584685417104910998, guid: 10f7d7dce1ec4104aaff90cd5fd1e0b8, type: 3}
       propertyPath: m_Size.y
@@ -3112,7 +3112,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3584685417104910998, guid: 10f7d7dce1ec4104aaff90cd5fd1e0b8, type: 3}
       propertyPath: m_Size.z
-      value: 41.4
+      value: 70.52994
+      objectReference: {fileID: 0}
+    - target: {fileID: 3584685417104910998, guid: 10f7d7dce1ec4104aaff90cd5fd1e0b8, type: 3}
+      propertyPath: m_Center.x
+      value: 0.4530084
+      objectReference: {fileID: 0}
+    - target: {fileID: 3584685417104910998, guid: 10f7d7dce1ec4104aaff90cd5fd1e0b8, type: 3}
+      propertyPath: m_Center.z
+      value: 14.564924
       objectReference: {fileID: 0}
     - target: {fileID: 4011556686516048377, guid: 10f7d7dce1ec4104aaff90cd5fd1e0b8, type: 3}
       propertyPath: m_LocalPosition.x
