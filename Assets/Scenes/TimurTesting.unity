@@ -119,6 +119,83 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &15565168
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 805573874221326597, guid: a7927ae896ad5224b8c1e77e9a7f8f23, type: 3}
+      propertyPath: attackRange
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5919868347677248410, guid: a7927ae896ad5224b8c1e77e9a7f8f23, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5919868347677248410, guid: a7927ae896ad5224b8c1e77e9a7f8f23, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5919868347677248410, guid: a7927ae896ad5224b8c1e77e9a7f8f23, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5919868347677248410, guid: a7927ae896ad5224b8c1e77e9a7f8f23, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 5919868347677248410, guid: a7927ae896ad5224b8c1e77e9a7f8f23, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.7700005
+      objectReference: {fileID: 0}
+    - target: {fileID: 5919868347677248410, guid: a7927ae896ad5224b8c1e77e9a7f8f23, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 5919868347677248410, guid: a7927ae896ad5224b8c1e77e9a7f8f23, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5919868347677248410, guid: a7927ae896ad5224b8c1e77e9a7f8f23, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5919868347677248410, guid: a7927ae896ad5224b8c1e77e9a7f8f23, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5919868347677248410, guid: a7927ae896ad5224b8c1e77e9a7f8f23, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5919868347677248410, guid: a7927ae896ad5224b8c1e77e9a7f8f23, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5919868347677248410, guid: a7927ae896ad5224b8c1e77e9a7f8f23, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5919868347677248410, guid: a7927ae896ad5224b8c1e77e9a7f8f23, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5919868347677248410, guid: a7927ae896ad5224b8c1e77e9a7f8f23, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6443604645881434400, guid: a7927ae896ad5224b8c1e77e9a7f8f23, type: 3}
+      propertyPath: m_Name
+      value: Mutant@Mutant Idle
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a7927ae896ad5224b8c1e77e9a7f8f23, type: 3}
 --- !u!1 &1158516311
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,7 +210,6 @@ GameObject:
   - component: {fileID: 1158516313}
   - component: {fileID: 1158516318}
   - component: {fileID: 1158516319}
-  - component: {fileID: 1158516320}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -277,7 +353,7 @@ MonoBehaviour:
     factionType: 0
     enemyMask:
       serializedVersion: 2
-      m_Bits: 0
+      m_Bits: 256
   moveSpeed: 5
   rotationSpeed: 10
   gravity: -9.81
@@ -290,42 +366,13 @@ MonoBehaviour:
   attackDamage: 10
   projectilePrefab: {fileID: 0}
   attackPoint: {fileID: 0}
+  isAttacking: 0
   dashDistance: 5
   dashDuration: 0.2
   heavyAttackMultiplier: 2
   attackKey: 122
   heavyAttackKey: 120
   dashKey: 99
---- !u!114 &1158516320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1158516311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 8e9ddd998c7539940a8df9a950901d88, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!1 &1633610357
 GameObject:
   m_ObjectHideFlags: 0
@@ -620,3 +667,4 @@ SceneRoots:
   - {fileID: 1801313207}
   - {fileID: 1633610361}
   - {fileID: 1158516316}
+  - {fileID: 15565168}

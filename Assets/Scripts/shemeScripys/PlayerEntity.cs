@@ -33,13 +33,12 @@ public class PlayerEntity : Entity
 
     protected override void Update()
     {
+        base.Update();
         if (isDead) return;
 
         GetInput();
-
         if (!isDashing)
         {
-            HandleMovement();
             HandleAttacks();
         }
 

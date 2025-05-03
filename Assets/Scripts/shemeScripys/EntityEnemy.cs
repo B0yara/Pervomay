@@ -3,7 +3,8 @@ using UnityEngine;
 public class EntityEnemy : Entity
 {
     [Header("Enemy Settings")]
-    public float stoppingDistance = 1f; // Дистанция остановки перед целью
+    private GameObject damagePrefab;
+    protected Transform point;
 
     private Vector3 direction;
 
@@ -14,13 +15,12 @@ public class EntityEnemy : Entity
         faction.enemyMask = LayerMask.GetMask("Player", "Ally");
         EnemyController.Instance.RegisterEnemy(this);
     }
-
     protected override void Update()
     {
         base.Update();
         UpdateAI();
-    }
 
+    }
     protected override void HandleMovement()
     {
         if (CurrentTarget == null) return;
@@ -29,18 +29,18 @@ public class EntityEnemy : Entity
 
         float distance = Vector3.Distance(transform.position, CurrentTarget.position);
 
-        // Двигаемся только если цель вне радиуса атаки
-        if (distance > attackRange)
-        {
-            Vector3 moveDirection = (CurrentTarget.position - transform.position).normalized;
-            controller.Move(moveDirection * moveSpeed * Time.deltaTime);
-        }
-        else
-        {
-            controller.Move(Vector3.zero); // Останавливаемся для атаки
-        }
+        if (animator.GetInteger("indexAnimation") != 2)
+            if (distance > attackRange)
+            {
+                Vector3 moveDirection = (CurrentTarget.position - transform.position).normalized;
+                controller.Move(moveDirection * moveSpeed * Time.deltaTime);
+            }
+            else
+            {
+                controller.Move(Vector3.zero); // Останавливаемся для атаки
+                animator.SetInteger("indexAnimation", 2);
+            }
     }
-
     protected override void OnDestroy()
     {
         base.OnDestroy();

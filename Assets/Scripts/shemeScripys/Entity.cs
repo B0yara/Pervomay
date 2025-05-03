@@ -31,7 +31,7 @@ public class Entity : _CanDamage
     protected bool isDead = false;
     protected Transform currentTarget;
     protected float nextAttackTime;
-    protected bool isAttacking = false;
+    public bool isAttacking = false;
 
 
     [Header("Target and AI")]
@@ -44,6 +44,7 @@ public class Entity : _CanDamage
     public virtual void SetTarget(Transform target)
     {
         CurrentTarget = target;
+        animator.SetInteger("indexAnimation", 1);
     }
 
     protected virtual void Start()
@@ -59,9 +60,7 @@ public class Entity : _CanDamage
 
         HandleGravity();
         HandleMovement();
-        UpdateAnimations();
     }
-
     protected virtual void UpdateAI()
     {
         FindTarget();
@@ -124,8 +123,7 @@ public class Entity : _CanDamage
     {
         // Устанавливаем время следующей атаки
         nextAttackTime = Time.time + 1f / attackRate;
-        isAttacking = true;
-        
+        StartAnimation(2);
     }
     protected virtual void LaunchProjectile()
     {
@@ -146,7 +144,6 @@ public class Entity : _CanDamage
             }
         }
 
-        isAttacking = false;
     }
     // Визуализация луча в редакторе
     private void OnDrawGizmosSelected()
@@ -200,17 +197,44 @@ public class Entity : _CanDamage
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
-    protected virtual void UpdateAnimations()
+    public void StartAnimation(int animNumber)
     {
-        if (animator == null) return;
-
-        // Передаем скорость в аниматор
-        float speed = controller.velocity.magnitude;
-        animator.SetFloat(moveAnimParam, speed);
-
-        // Передаем состояние "на земле"
-        animator.SetBool(groundedAnimParam, isGrounded);
+        animator.SetInteger("indexAnimation", animNumber);
+        if (animNumber == 2) isAttacking = true;
+        else isAttacking = false;
     }
+
+    /// <summary>
+    /// Обновление анимации
+    /// 1. Атака
+    /// 2. Тяжелая атака
+    /// 3. Бег
+    /// 4. Покой
+    /// 5. Деш
+    /// 
+    /// 
+    /// 1. Attack - bool
+    /// 2. HighAttack - bool
+    /// 3. Idle - none
+    /// 4. Run - bool
+    /// 5. Desh - bool
+    /// 
+    /// 
+    /// 1. при Z - Attack = true
+    /// 2. при X - HighAttack = true
+    /// 3. при C - Desh = true
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// Анимации для врагов
+    /// 0. покой
+    /// 1. бег
+    /// 2. Атака
+    /// </summary>
+    /// 
     public override void Die()
     {
         if (isDead) return;
@@ -235,4 +259,6 @@ public class Entity : _CanDamage
     {
 
     }
+
+    
 }
