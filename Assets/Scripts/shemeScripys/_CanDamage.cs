@@ -5,9 +5,9 @@ public class _CanDamage : MonoBehaviour
     [Header("_CanDamage")]
     public int maxHP = 100;
     public int hp = 100;
-    public Animation deathAnimation;
     public Animator animator;
     public ParticleSystem particleSystem;
+    public ParticleSystem deathParticleSystem;
     public bool canDamage = true;
     public bool isDamaged = false;
 
@@ -38,21 +38,16 @@ public class _CanDamage : MonoBehaviour
         // Проверка на смерть
         if (hp <= 0)
         {
+            deathParticleSystem.Play();
             hp = 0;
-            Die();
+            Die(0);
         }
     }
 
-    public virtual void Die()
+    public virtual void Die(float time)
     {
-        // Воспроизведение анимации смерти, если она есть
-        if (deathAnimation != null)
-        {
-            deathAnimation.Play();
-        }
-
         // Уничтожение объекта после анимации
-        Destroy(gameObject, 2f); // 2 секунды - примерное время для анимации
+        Destroy(gameObject, time); // 2 секунды - примерное время для анимации
     }
 
     // Дополнительный метод для лечения
