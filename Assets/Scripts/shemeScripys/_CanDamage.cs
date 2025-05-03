@@ -7,6 +7,9 @@ public class _CanDamage : MonoBehaviour
     public int hp = 100;
     public Animation deathAnimation;
     public Animator animator;
+    public ParticleSystem particleSystem;
+    public bool canDamage = true;
+    public bool isDamaged = false;
 
     private void Start()
     {
@@ -16,8 +19,12 @@ public class _CanDamage : MonoBehaviour
 
     public void GetDamage(int damage)
     {
-        hp -= damage;
-        CheckHP();
+        if (canDamage)
+        {
+            particleSystem.Play();
+            hp -= damage;
+            CheckHP();
+        }   
     }
 
     public void CheckHP()
@@ -66,5 +73,10 @@ public class _CanDamage : MonoBehaviour
         {
             hp = Mathf.Min(hp, maxHP);
         }
+    }
+
+    public virtual void CanIsDamage(bool to)
+    {
+        canDamage = to;
     }
 }

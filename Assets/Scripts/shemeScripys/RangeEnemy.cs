@@ -23,7 +23,6 @@ public class RangeEnemy : EntityEnemy
         }
         controller.Move(moveDirection * moveSpeed * Time.deltaTime);
     }
-
     protected override bool CanAttack()
     {
         // Условия атаки:

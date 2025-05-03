@@ -4,7 +4,6 @@ public class MelleEnemy : EntityEnemy
 {
     public Transform damagePoint;
     [SerializeField] GameObject damageZonePrefab;
-    private GameObject nowZone;
     
     /// <summary>
     /// Когда состояние анимации = 2;
@@ -14,14 +13,14 @@ public class MelleEnemy : EntityEnemy
         base.Attack();
         Debug.Log($"MelleFire: {nextAttackTime}={Time.time + 1f / attackRate}");
     }
-
     protected virtual void CreateDamageZone()
     {
-        nowZone = Instantiate(damageZonePrefab, damagePoint );
+        damageZonePrefab.SetActive(true);
+        damageZonePrefab.GetComponent<ZoneData>().Initialize(attackDamage, faction.enemyMask);
     }
 
     protected virtual void RemoveDamageZone()
     {
-        Destroy(nowZone);
+        damageZonePrefab.SetActive(false);
     }
 }
