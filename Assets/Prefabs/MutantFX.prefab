@@ -88,6 +88,18 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 844ed702a88064949b0fea0945c205f4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 844ed702a88064949b0fea0945c205f4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 844ed702a88064949b0fea0945c205f4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 844ed702a88064949b0fea0945c205f4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -126,6 +138,10 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 844ed702a88064949b0fea0945c205f4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 844ed702a88064949b0fea0945c205f4, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8183481454299698827, guid: 844ed702a88064949b0fea0945c205f4, type: 3}
       propertyPath: m_Layer
@@ -705,7 +721,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.85, z: 0.2}
+  m_Center: {x: 0, y: 1, z: 0.2}
 --- !u!114 &805573874221326597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -720,9 +736,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 100
   hp: 100
-  deathAnimation: {fileID: 0}
   animator: {fileID: 6559710836419937019}
   particleSystem: {fileID: 8264688124353374920}
+  deathParticleSystem: {fileID: 0}
   canDamage: 0
   isDamaged: 0
   faction:
@@ -737,7 +753,7 @@ MonoBehaviour:
   groundedAnimParam: Null
   deathAnimParam: Die
   detectionRange: 1000
-  attackRange: 10
+  attackRange: 3.3
   attackRate: 1
   attackDamage: 10
   projectilePrefab: {fileID: 0}
@@ -781,7 +797,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3584685417104910998, guid: 10f7d7dce1ec4104aaff90cd5fd1e0b8, type: 3}
       propertyPath: m_Size.x
-      value: 1.36
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3584685417104910998, guid: 10f7d7dce1ec4104aaff90cd5fd1e0b8, type: 3}
       propertyPath: m_Size.y
@@ -789,7 +805,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3584685417104910998, guid: 10f7d7dce1ec4104aaff90cd5fd1e0b8, type: 3}
       propertyPath: m_Size.z
-      value: 1.7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4011556686516048377, guid: 10f7d7dce1ec4104aaff90cd5fd1e0b8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -801,7 +817,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4011556686516048377, guid: 10f7d7dce1ec4104aaff90cd5fd1e0b8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.738
+      value: 1.06
       objectReference: {fileID: 0}
     - target: {fileID: 4011556686516048377, guid: 10f7d7dce1ec4104aaff90cd5fd1e0b8, type: 3}
       propertyPath: m_LocalRotation.w

@@ -14,9 +14,8 @@ GameObject:
   - component: {fileID: 5028509295038388823}
   - component: {fileID: 574966776873828113}
   - component: {fileID: 4515024218570302202}
-  - component: {fileID: 1475139188882134798}
   m_Layer: 6
-  m_Name: Player
+  m_Name: Player 1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -187,28 +186,6 @@ MonoBehaviour:
   highZone: {fileID: 0}
   dashSpeedMultiplier: 10
   heavyAttackMultiplier: 2
---- !u!95 &1475139188882134798
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6228233064325622493}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c04cfb048c5d596488f6f2f80cca31a2, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7477473551930133677
 GameObject:
   m_ObjectHideFlags: 0

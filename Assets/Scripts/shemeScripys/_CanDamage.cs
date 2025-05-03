@@ -21,8 +21,11 @@ public class _CanDamage : MonoBehaviour
     {
         if (canDamage)
         {
-            particleSystem.Play();
-            hp -= damage;
+            if (hp > 0)
+            {
+                particleSystem.Play();
+                hp -= damage;
+            }
             CheckHP();
         }   
     }
