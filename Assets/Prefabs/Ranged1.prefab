@@ -563,15 +563,15 @@ MonoBehaviour:
   groundedAnimParam: Null
   deathAnimParam: Die
   detectionRange: 1000
-  attackRange: 26
-  attackRate: 2
+  attackRange: 20
+  attackRate: 1
   attackDamage: 10
   projectilePrefab: {fileID: 9058099336111429570, guid: cf0adae0173c000488f81a3a4f3a8598, type: 3}
   attackPoint: {fileID: 8953218845104568407}
   controller: {fileID: 7335548716563470048}
   currentTarget: {fileID: 0}
   isAttacking: 0
-  safeDistance: 10
+  safeDistance: 7
 --- !u!4 &969016224151427487 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c67b15f81d3c779479d3588e36ea13e0, type: 3}
