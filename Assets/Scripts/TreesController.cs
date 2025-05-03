@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class TreesController : MonoBehaviour
 {
-    [SerializeField] Transform TreesParent;
+    [SerializeField] Transform[] TreesParent;
     [SerializeField] float TargerAngle = -35f;
     [SerializeField] float RotationDuration = 1f;
     private bool _treesActive = false;
@@ -23,7 +23,11 @@ public class TreesController : MonoBehaviour
     {
         for (float t = 0; t < RotationDuration; t += Time.deltaTime)
         {
-            TreesParent.localRotation = Quaternion.Lerp(TreesParent.localRotation, Quaternion.Euler(TargerAngle, 0, 0), t / RotationDuration);
+            foreach (var tree in TreesParent)
+            {
+                tree.localRotation = Quaternion.Lerp(tree.localRotation, Quaternion.Euler(TargerAngle, 0, 0), t / RotationDuration);
+            }
+            //  TreesParent.localRotation = Quaternion.Lerp(TreesParent.localRotation, Quaternion.Euler(TargerAngle, 0, 0), t / RotationDuration);
             yield return null;
         }
 
