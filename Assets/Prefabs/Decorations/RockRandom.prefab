@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 478949883449359739}
   - component: {fileID: 8000123094733846952}
   m_Layer: 0
-  m_Name: Three
+  m_Name: RockRandom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,24 +155,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Materials:
-  - {fileID: 2100000, guid: 08cbf6d94087ab746bd7789868320300, type: 2}
-  - {fileID: 2100000, guid: 2330ebc49f50da1429fc9a66e3ae4b87, type: 2}
-  - {fileID: 2100000, guid: 16513772511eecb4e9a8281cb117ff66, type: 2}
-  - {fileID: 2100000, guid: cefba24c0a7017f44b68c9d3eacba8c5, type: 2}
-  - {fileID: 2100000, guid: 037c487a576cdb7439f8a3f7c24a7b44, type: 2}
-  - {fileID: 2100000, guid: a961f9a0ca1455c48872f5a658d4ece2, type: 2}
-  - {fileID: 2100000, guid: 971749b52d645494abf562a41469cea4, type: 2}
-  - {fileID: 2100000, guid: a39ab573a04b6a740b5bd26bc3d83a56, type: 2}
-  - {fileID: 2100000, guid: 0f3b281c898c1694a95d688de294babd, type: 2}
-  - {fileID: 2100000, guid: d00b93caa8b41a4428dafeb42b13d7d0, type: 2}
+  - {fileID: 2100000, guid: e5cfcb3030547754eb93c4692bf0d767, type: 2}
+  - {fileID: 2100000, guid: 76417689fcfdc71449c52a3ece7af1f6, type: 2}
+  - {fileID: 2100000, guid: 6895843ce1a63ce41a4700a89c86e0d2, type: 2}
   Scales:
-  - {x: 15.588116, y: 18.932636, z: 15.588125}
-  - {x: 15.588116, y: 18.932636, z: 15.588125}
-  - {x: 15.588116, y: 18.932636, z: 15.588125}
-  - {x: 16.308802, y: 22.057657, z: 16.308807}
-  - {x: 15.588116, y: 15.653751, z: 15.588125}
-  - {x: 15.588116, y: 24.394573, z: 15.588125}
-  - {x: 15.588116, y: 24.394573, z: 15.588125}
-  - {x: 15.588116, y: 24.394573, z: 15.588125}
-  - {x: 15.588116, y: 18.932636, z: 15.588125}
-  - {x: 15.588116, y: 18.932636, z: 15.588125}
+  - {x: 9.1494, y: 9.1494, z: 9.1494}
+  - {x: 9.1494, y: 9.1494, z: 9.1494}
+  - {x: 9.1494, y: 9.1494, z: 9.1494}
