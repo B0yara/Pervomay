@@ -14,7 +14,7 @@ public class _CanDamage : MonoBehaviour
 
     private void Start()
     {
-        // Инициализация HP при старте
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ HP пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         hp = Mathf.Clamp(hp, 0, maxHP);
     }
 
@@ -25,12 +25,12 @@ public class _CanDamage : MonoBehaviour
             if (hp > 0)
             {
                 animator.SetBool("TakeDamage", true);
-                
+
                 particleSystem.Play();
                 hp -= damage;
             }
             CheckHP();
-        }   
+        }
     }
 
     public void AnimDamage()
@@ -45,28 +45,28 @@ public class _CanDamage : MonoBehaviour
     {
         animator.SetBool("TakeDamage", false);
     }
-    
+
 
     public void CheckHP()
     {
-        // Ограничение HP максимальным значением
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ HP пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         if (hp > maxHP)
         {
             hp = maxHP;
         }
 
-        // Проверка на смерть
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         if (hp <= 0)
         {
             try
             {
                 animator.SetInteger("Hp", 0);
                 deathParticleSystem.Play();
-                
+                Die(2f); // 2 пїЅпїЅпїЅпїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ 
             }
             catch
             {
-                Debug.Log("СМЕРТЬ АНИМАЦИИ");
+                Debug.Log("пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
             }
             hp = 0;
 
@@ -76,11 +76,11 @@ public class _CanDamage : MonoBehaviour
     public virtual void Die(float time)
     {
         animator.SetBool("Death", true);
-        // Уничтожение объекта после анимации
-        Destroy(gameObject, time); // 2 секунды - примерное время для анимации
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+        Destroy(gameObject, time); // 2 пїЅпїЅпїЅпїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     }
 
-    // Дополнительный метод для лечения
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     public void Heal(int amount)
     {
         hp += amount;

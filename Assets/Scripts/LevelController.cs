@@ -14,24 +14,12 @@ public class LevelController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        EnemyController.Instance.OnEnemiesDead = EnemyKilled;
     }
 
     public void EnemyKilled()
     {
-        Enemies--;
-        if (Enemies <= 0)
-        {
-            // Здесь можно добавить логику для завершения уровня или перехода к следующему
-            Debug.Log("All enemies killed! Level complete!");
-            StartCoroutine(OpenDoor());
-        }
+        StartCoroutine(OpenDoor());
     }
 
     IEnumerator OpenDoor()

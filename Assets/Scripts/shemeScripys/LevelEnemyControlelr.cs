@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ public class EnemyController : MonoBehaviour
 
     private List<EntityEnemy> activeEnemies = new List<EntityEnemy>();
     private float lastUpdateTime;
+    public Action OnEnemiesDead;
 
     private void Awake()
     {
@@ -23,7 +25,7 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        // Оптимизация: групповое обновление с интервалом
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         if (Time.time - lastUpdateTime > groupUpdateInterval)
         {
             lastUpdateTime = Time.time;
@@ -43,6 +45,10 @@ public class EnemyController : MonoBehaviour
         if (activeEnemies.Contains(enemy))
         {
             activeEnemies.Remove(enemy);
+        }
+        if (activeEnemies.Count == 0)
+        {
+            OnEnemiesDead?.Invoke();
         }
     }
 

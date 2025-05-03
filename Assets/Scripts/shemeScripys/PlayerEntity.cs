@@ -100,7 +100,7 @@ public class PlayerEntity : Entity
 
             // �������� ��������
             if (animator != null)
-                animator.SetFloat(moveAnimParam, direction.magnitude);
+                animator.SetBool(moveAnimParam, direction.magnitude > 0.1f);
         }
 
     }
@@ -171,12 +171,13 @@ public class PlayerEntity : Entity
     protected override void UpdateAI() { }
     protected override void FindTarget() { }
     protected override bool CanAttack() => false;
-
+    public override void Die(float time)
+    {
+        base.Die(time);
+        GameController.Instance.GameOver();
+    }
     protected override void OnDestroy()
     {
         base.OnDestroy();
-
-        GameController.Instance.GameOver();
-
     }
 }

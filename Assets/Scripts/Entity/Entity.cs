@@ -41,7 +41,7 @@ public class Entity : _CanDamage
         get => currentTarget;
         protected set => currentTarget = value;
     }
-    // Тип сущности
+    // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     public virtual void SetTarget(Transform target)
     {
         currentTarget = target;
@@ -72,7 +72,7 @@ public class Entity : _CanDamage
     {
         if (CurrentTarget != null && CurrentTarget.gameObject.activeInHierarchy)
             return;
-        
+
 
         var closestTarget = FindClosestTarget();
         if (closestTarget != null)
@@ -101,11 +101,11 @@ public class Entity : _CanDamage
     }
     protected virtual bool CanAttack()
     {
-        // Условия атаки:
-        // 1. Цель существует и жива
-        // 2. Не на кулдауне
-        // 3. В радиусе атаки
-        // 4. Нет препятствий между нами и целью
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ:
+        // 1. пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ
+        // 2. пїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+        // 3. пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+        // 4. пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ
 
         if (CurrentTarget == null || isDead || isAttacking) return false;
         if (Time.time < nextAttackTime) return false;
@@ -114,7 +114,7 @@ public class Entity : _CanDamage
         if (distance > attackRange) return false;
 
         RaycastHit hit;
-        
+
         if (Physics.Raycast(transform.position,
                        (CurrentTarget.position - transform.position).normalized,
                        out hit,
@@ -128,7 +128,7 @@ public class Entity : _CanDamage
     }
     protected virtual void Attack()
     {
-        // Устанавливаем время следующей атаки
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         nextAttackTime = Time.time + 1f / attackRate;
         StartAnimation(2);
     }
@@ -137,12 +137,12 @@ public class Entity : _CanDamage
         Projectile projectile = Instantiate(projectilePrefab, attackPoint.position, attackPoint.rotation);
         projectile.Initialize(attackDamage, CurrentTarget, faction.enemyMask);
     }
-    // Вызывается из анимации атаки (для ближников)
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ)
     public virtual void OnAttackAnimationHit()
     {
         if (!isAttacking) return;
 
-        // Проверяем, все ли еще цель в зоне поражения
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         if (CanAttack())
         {
             if (CurrentTarget.TryGetComponent<_CanDamage>(out var damageable))
@@ -152,7 +152,7 @@ public class Entity : _CanDamage
         }
 
     }
-    // Визуализация луча в редакторе
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     private void OnDrawGizmosSelected()
     {
         if (CurrentTarget != null)
@@ -163,17 +163,17 @@ public class Entity : _CanDamage
     }
     protected virtual void HandleMovement()
     {
-        // Базовое движение (переопределяется в наследниках)
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ)
     }
     protected void Move(Vector3 direction)
     {
         if (direction.magnitude > 0.1f)
         {
-            // Поворот в направлении движения
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             Quaternion targetRotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
-            // Движение
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             controller.Move(direction.normalized * moveSpeed * Time.deltaTime);
         }
     }
@@ -215,5 +215,5 @@ public class Entity : _CanDamage
 
     }
 
-    
+
 }
