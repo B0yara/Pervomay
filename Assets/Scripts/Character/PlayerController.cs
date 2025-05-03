@@ -44,12 +44,10 @@ public class PlayerController : MonoBehaviour
 
         _movement = new Vector3(horizontal, 0f, vertical).normalized;
 
-        if (Input.GetKeyDown(attackKey))
+        if (Input.GetKey(attackKey))
         {
             Attack();
         }
-
-
     }
 
     private void Attack()

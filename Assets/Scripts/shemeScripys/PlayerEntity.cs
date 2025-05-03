@@ -56,6 +56,20 @@ public class PlayerEntity : Entity
             Input.GetAxis("Vertical")
             ).normalized;
 
+        if (animator != null)
+        {
+            if (moveInput != Vector2.zero)
+            {
+                animator.SetBool("Run", true);
+            }
+            else
+            {
+                animator.SetBool("Run", false);
+            }
+        }
+        
+
+
 
         attackInput = Input.GetKeyDown(attackKey);
         heavyAttackInput = Input.GetKeyDown(heavyAttackKey);
@@ -123,7 +137,6 @@ public class PlayerEntity : Entity
         canDamage = true;
         moveSpeed = standardMoveSpeed;
     }
-
     private void LighZone()
     {
         lighZone.SetActive(!lighZone);
@@ -136,8 +149,6 @@ public class PlayerEntity : Entity
             attackDamage * heavyAttackMultiplier,
             faction.enemyMask);
     }
-
-
 
     // Отключаем ненужные AI-методы
     protected override void UpdateAI() { }
