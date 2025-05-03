@@ -7,10 +7,8 @@ using UnityEngine.InputSystem;
 public class PlayerEntity : Entity
 {
     [Header("Player Controls")]
-    public float dashDistance = 5f;
-    public float dashDuration = 0.2f;
-    public int heavyAttackMultiplier = 2;
-
+    private float nextActionTime = 0f;
+    public float interval = 5f;
 
     public KeyCode attackKey        =     KeyCode.Z;
     public KeyCode heavyAttackKey   =     KeyCode.X;
@@ -22,7 +20,14 @@ public class PlayerEntity : Entity
     private bool attackInput;
     private bool heavyAttackInput;
 
+    [Header("Zones")]
+    public GameObject lighZone;
+    public GameObject highZone;
 
+
+    [Header("AnimationTimings")]
+    public float dashSpeedMultiplier = 2f;
+    public int heavyAttackMultiplier = 2;
 
     protected override void Start()
     {
@@ -84,64 +89,66 @@ public class PlayerEntity : Entity
     {
         if (attackInput && !isAttacking)
         {
-            StartCoroutine(PerformAttack(attackDamage, "Attack"));
+            animator.SetBool("LighAttack", true);
         }
 
         if (heavyAttackInput && !isAttacking)
         {
-            StartCoroutine(PerformAttack(attackDamage * heavyAttackMultiplier, "HeavyAttack"));
+            animator.SetBool("HighAttack", true);
         }
     }
-    private IEnumerator PerformAttack(int damage, string trigger)
-    {
-        isAttacking = true;
-        animator.SetTrigger(trigger);
-
-        // Ожидаем момент удара в анимации (настройте Animation Event)
-        yield return new WaitForSeconds(0.3f);
-
-        // Проверка попадания
-        if (Physics.Raycast(
-            transform.position + Vector3.up * 0.5f,
-            transform.forward,
-            out var hit,
-            attackRange,
-            faction.enemyMask))
-        {
-            hit.collider.GetComponent<_CanDamage>()?.GetDamage(damage);
-        }
-
-        yield return new WaitForSeconds(0.2f);
-        isAttacking = false;
-    }
+    // Вызывается если всё ок
     private void HandleDash()
     {
+        // Чуть позже всё будет в Animator
         if (dashInput && !isDashing && !isAttacking)
         {
-            StartCoroutine(PerformDash());
+            canDamage = false;
+            try
+            {
+                animator.SetBool("Dash", true);
+            }
+            catch
+            {
+
+            }
+            
+            moveSpeed = standardMoveSpeed * dashSpeedMultiplier;
+
         }
     }
-    private IEnumerator PerformDash()
+    private void EndDash()
     {
-        isDashing = true;
-        Vector3 dashDirection = moveInput.magnitude > 0.1f
-            ? new Vector3(moveInput.x, 0, moveInput.y).normalized
-            : transform.forward;
-
-        animator.SetTrigger("Dash");
-        float startTime = Time.time;
-
-        while (Time.time < startTime + dashDuration)
-        {
-            controller.Move(dashDirection * (dashDistance / dashDuration) * Time.deltaTime);
-            yield return null;
-        }
-
-        isDashing = false;
+        animator.SetBool("Dash", false);
+        canDamage = true;
+        moveSpeed = standardMoveSpeed;
     }
+
+    private void LighZone()
+    {
+        lighZone.SetActive(!lighZone);
+        lighZone.GetComponent<ZoneData>().Initialize(attackDamage, faction.enemyMask);
+    }
+    private void HighZone()
+    {
+        highZone.SetActive(!highZone);
+        highZone.GetComponent<ZoneData>().Initialize(
+            attackDamage * heavyAttackMultiplier,
+            faction.enemyMask);
+    }
+
+
 
     // Отключаем ненужные AI-методы
     protected override void UpdateAI() { }
     protected override void FindTarget() { }
     protected override bool CanAttack() => false;
+
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+        GameController contr = GameObject.Find("GameController").GetComponent<GameController>();
+        contr.EndGame();
+
+    }
 }

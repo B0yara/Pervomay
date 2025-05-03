@@ -5,6 +5,7 @@ public class EntityEnemy : Entity
     [Header("Enemy Settings")]
     private GameObject damagePrefab;
     protected Transform point;
+    
 
     private Vector3 direction;
 
