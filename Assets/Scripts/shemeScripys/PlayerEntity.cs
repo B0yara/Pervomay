@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.InputSystem;
 
 
@@ -72,44 +73,59 @@ public class PlayerEntity : Entity
 
 
         attackInput = Input.GetKeyDown(attackKey);
-        heavyAttackInput = Input.GetKeyDown(heavyAttackKey);
+        //heavyAttackInput = Input.GetKeyDown(heavyAttackKey);
         dashInput = Input.GetKeyDown(dashKey);
     }
     protected override void HandleMovement()
     {
-        Vector3 direction = new Vector3(moveInput.x, 0, moveInput.y).normalized;
-
-        // Поворот
-        if (direction.magnitude > 0.1f)
+        if (!animator.GetBool("Attack"))
         {
-            Quaternion targetRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Slerp(
-                transform.rotation,
-                targetRotation,
-                rotationSpeed * Time.deltaTime
-            );
+            Vector3 direction = new Vector3(moveInput.x, 0, moveInput.y).normalized;
+
+            // Поворот
+            if (direction.magnitude > 0.1f)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(direction);
+                transform.rotation = Quaternion.Slerp(
+                    transform.rotation,
+                    targetRotation,
+                    rotationSpeed * Time.deltaTime
+                );
+            }
+
+            // Движение с учетом гравитации
+            Vector3 move = direction * moveSpeed;
+            move.y = velocity.y;
+            controller.Move(move * Time.deltaTime);
+
+            // Анимация движения
+            if (animator != null)
+                animator.SetFloat(moveAnimParam, direction.magnitude);
         }
-
-        // Движение с учетом гравитации
-        Vector3 move = direction * moveSpeed;
-        move.y = velocity.y;
-        controller.Move(move * Time.deltaTime);
-
-        // Анимация движения
-        if (animator != null)
-            animator.SetFloat(moveAnimParam, direction.magnitude);
+       
     }
     private void HandleAttacks()
     {
         if (attackInput && !isAttacking)
         {
-            animator.SetBool("LighAttack", true);
+            animator.SetBool("Attack", true);
         }
 
         if (heavyAttackInput && !isAttacking)
         {
             animator.SetBool("HighAttack", true);
         }
+        if (animator.GetBool("TakeDamage"))
+        {
+            animator.SetBool("Attack", false);
+        }
+    }
+
+
+    public void EndAttack()
+    {
+        animator.SetBool("Attack", false);
+        isAttacking = false;
     }
     // Вызывается если всё ок
     private void HandleDash()
@@ -139,7 +155,8 @@ public class PlayerEntity : Entity
     }
     private void LighZone()
     {
-        lighZone.SetActive(!lighZone);
+        lighZone.SetActive(!lighZone.activeSelf);
+
         lighZone.GetComponent<ZoneData>().Initialize(attackDamage, faction.enemyMask);
     }
     private void HighZone()

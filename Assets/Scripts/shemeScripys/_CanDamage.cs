@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class _CanDamage : MonoBehaviour
@@ -23,12 +24,32 @@ public class _CanDamage : MonoBehaviour
         {
             if (hp > 0)
             {
+                animator.SetBool("TakeDamage", true);
+                
                 particleSystem.Play();
                 hp -= damage;
             }
             CheckHP();
         }   
+        if (isDamaged)
+        {
+
+        }
     }
+
+    public void AnimDamage()
+    {
+        animator.SetBool("IsDamaged", true);
+    }
+    public void EndAnimDamage()
+    {
+        animator.SetBool("IsDamaged", false);
+    }
+    public void EndTakeDamage()
+    {
+        animator.SetBool("TakeDamage", false);
+    }
+    
 
     public void CheckHP()
     {
@@ -43,15 +64,14 @@ public class _CanDamage : MonoBehaviour
         {
             try
             {
+                animator.SetInteger("Hp", 0);
                 deathParticleSystem.Play();
             }
             catch
             {
                 Debug.Log("—Ã≈–“‹ ¿Õ»Ã¿÷»»");
             }
-            
             hp = 0;
-            Die(0);
         }
     }
 

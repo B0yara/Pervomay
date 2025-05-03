@@ -74,7 +74,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7606750026315463124, guid: ccde56ad0a08a5543828c8f5aea11091, type: 3}
       propertyPath: lengthInSec
-      value: 0.5
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7606750026315463124, guid: ccde56ad0a08a5543828c8f5aea11091, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7606750026315463124, guid: ccde56ad0a08a5543828c8f5aea11091, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7606750026315463124, guid: ccde56ad0a08a5543828c8f5aea11091, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7606750026315463124, guid: ccde56ad0a08a5543828c8f5aea11091, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -532,23 +548,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1812064738360938953, guid: 10f7d7dce1ec4104aaff90cd5fd1e0b8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3584685417104910998, guid: 10f7d7dce1ec4104aaff90cd5fd1e0b8, type: 3}
       propertyPath: m_Size.x
-      value: 3.855011
+      value: 2.74
       objectReference: {fileID: 0}
     - target: {fileID: 3584685417104910998, guid: 10f7d7dce1ec4104aaff90cd5fd1e0b8, type: 3}
       propertyPath: m_Size.y
-      value: 0.5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3584685417104910998, guid: 10f7d7dce1ec4104aaff90cd5fd1e0b8, type: 3}
       propertyPath: m_Size.z
-      value: 4.275819
+      value: 6.42
       objectReference: {fileID: 0}
     - target: {fileID: 3584685417104910998, guid: 10f7d7dce1ec4104aaff90cd5fd1e0b8, type: 3}
       propertyPath: m_Center.x
       value: -0.1182127
+      objectReference: {fileID: 0}
+    - target: {fileID: 3584685417104910998, guid: 10f7d7dce1ec4104aaff90cd5fd1e0b8, type: 3}
+      propertyPath: m_Center.y
+      value: 1.76
       objectReference: {fileID: 0}
     - target: {fileID: 3584685417104910998, guid: 10f7d7dce1ec4104aaff90cd5fd1e0b8, type: 3}
       propertyPath: m_Center.z

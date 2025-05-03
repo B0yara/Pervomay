@@ -25,11 +25,11 @@ Transform:
   m_GameObject: {fileID: 2226637065812170299}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 7.27, z: -0}
+  m_LocalPosition: {x: 1.42, y: 23.09, z: 21.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1390968693033550268}
+  m_Father: {fileID: 969016224151427487}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &790410744165285492
 PrefabInstance:
@@ -345,7 +345,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: c67b15f81d3c779479d3588e36ea13e0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8534863855688866161}
-    - targetCorrespondingSourceObject: {fileID: 1852576806548013000, guid: c67b15f81d3c779479d3588e36ea13e0, type: 3}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: c67b15f81d3c779479d3588e36ea13e0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8953218845104568407}
     m_AddedComponents:
@@ -443,8 +443,8 @@ MonoBehaviour:
   groundedAnimParam: Null
   deathAnimParam: Die
   detectionRange: 1000
-  attackRange: 20
-  attackRate: 1
+  attackRange: 26
+  attackRate: 2
   attackDamage: 10
   projectilePrefab: {fileID: 9058099336111429570, guid: cf0adae0173c000488f81a3a4f3a8598, type: 3}
   attackPoint: {fileID: 8953218845104568407}
@@ -455,11 +455,6 @@ MonoBehaviour:
 --- !u!4 &969016224151427487 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c67b15f81d3c779479d3588e36ea13e0, type: 3}
-  m_PrefabInstance: {fileID: 790410744165285492}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1390968693033550268 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1852576806548013000, guid: c67b15f81d3c779479d3588e36ea13e0, type: 3}
   m_PrefabInstance: {fileID: 790410744165285492}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2529833661384636758
