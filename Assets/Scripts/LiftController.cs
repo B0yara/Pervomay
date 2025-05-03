@@ -8,6 +8,7 @@ public class LiftController : MonoBehaviour
     GameObject DoorsColider;
     [SerializeField]
     GameObject LiftPanel;
+    [SerializeField]
     private int currentFloor = 2; // Текущий этаж лифта
     [SerializeField]
     private float speed = 2f; // Скорость лифта
