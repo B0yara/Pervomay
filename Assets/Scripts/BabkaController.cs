@@ -7,6 +7,9 @@ public class BabkaController : MonoBehaviour
     private const string OPEN_DIALOG_HINT = "Нжмите 'E'";
     private const string NEXT_DIALOG_HINT = "Далее 'E'";
     private const string CLOSE_DIALOG_HINT = "Закрыть 'E'";
+
+    private static Item EmptyUsb = new Item { itemName = "EmptyUSB", itemID = 0 };
+
     [SerializeField]
     TMP_Text BabkaText;
     [SerializeField]
@@ -68,6 +71,7 @@ public class BabkaController : MonoBehaviour
         if (_currentTextIndex == _texts.Length - 1)
         {
             DialogHint.text = CLOSE_DIALOG_HINT;
+            GiveUSB();
         }
 
         if (_currentTextIndex >= _texts.Length)
@@ -81,6 +85,6 @@ public class BabkaController : MonoBehaviour
 
     void GiveUSB()
     {
-
+        GameController.Instance.Inventory.AddItem(EmptyUsb);
     }
 }

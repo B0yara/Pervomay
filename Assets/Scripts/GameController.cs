@@ -7,13 +7,10 @@ public class GameController : MonoBehaviour
     GameObject GameOverPanel;
 
     static GameController _instance;
-    public static GameController Instance
-    {
-        get
-        {
-            return _instance;
-        }
-    }
+    public static GameController Instance => _instance;
+
+    public Inventory Inventory;
+
     private void Awake()
     {
         if (_instance == null)
@@ -25,6 +22,13 @@ public class GameController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        Init();
+    }
+
+    void Init()
+    {
+        Inventory = new Inventory();
+        MainMenu();
     }
 
     public void GameOver()
