@@ -3424,9 +3424,9 @@ MonoBehaviour:
     playOnAwake: 0
     source: {fileID: 0}
   - name: BG
-    clip: {fileID: 8300000, guid: d71081ff254cc7343bcf4d9b2bd86ceb, type: 3}
+    clip: {fileID: 8300000, guid: 14eb5a8e9ed470544bcf7e5cc1672f2b, type: 3}
     mixerGroup: {fileID: -398407804671845229, guid: 3e7708f1845578d459a4d9195adf7585, type: 2}
-    volume: 1
+    volume: 0.8
     pitch: 1
     loop: 1
     playOnAwake: 1
@@ -3457,6 +3457,14 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: page
     clip: {fileID: 8300000, guid: eeb0ad489640a424f9d44c79fb178423, type: 3}
+    mixerGroup: {fileID: -5033367694489168981, guid: 3e7708f1845578d459a4d9195adf7585, type: 2}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: enteract
+    clip: {fileID: 8300000, guid: 89ca8427fc8b2214db1c43069f2fe14d, type: 3}
     mixerGroup: {fileID: -5033367694489168981, guid: 3e7708f1845578d459a4d9195adf7585, type: 2}
     volume: 0.4
     pitch: 1
