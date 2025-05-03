@@ -62,17 +62,20 @@ public class _CanDamage : MonoBehaviour
             {
                 animator.SetInteger("Hp", 0);
                 deathParticleSystem.Play();
+                
             }
             catch
             {
                 Debug.Log("СМЕРТЬ АНИМАЦИИ");
             }
             hp = 0;
+
         }
     }
 
     public virtual void Die(float time)
     {
+        animator.SetBool("Death", true);
         // Уничтожение объекта после анимации
         Destroy(gameObject, time); // 2 секунды - примерное время для анимации
     }

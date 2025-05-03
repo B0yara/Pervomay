@@ -5,7 +5,7 @@ public class RangeEnemy : EntityEnemy
     public float safeDistance = 5f;
     protected override void HandleMovement()
     {
-        if (CurrentTarget == null) return;
+        if (CurrentTarget == null || animator.GetBool("Death")) return;
 
         UpdateRotation();
 
@@ -41,7 +41,7 @@ public class RangeEnemy : EntityEnemy
         // 3. В радиусе атаки
         // 4. Нет препятствий между нами и целью
 
-        if (CurrentTarget == null || isDead || isAttacking) return false;
+        if (CurrentTarget == null || isDead || isAttacking || animator.GetBool("Death")) return false;
         if (Time.time < nextAttackTime) return false;
 
         float distance = Vector3.Distance(transform.position, CurrentTarget.position);
