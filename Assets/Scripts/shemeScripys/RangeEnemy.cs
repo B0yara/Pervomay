@@ -16,10 +16,12 @@ public class RangeEnemy : EntityEnemy
         if (distance > attackRange)
         {
             moveDirection = (CurrentTarget.position - transform.position).normalized;
+            animator.SetInteger("indexAnimation", 1);
         }
-        else if (distance < safeDistance)
+        else if (distance < safeDistance + 2)
         {
             moveDirection = (transform.position - CurrentTarget.position).normalized;
+            animator.SetInteger("indexAnimation", 1);
         }
         else
         {

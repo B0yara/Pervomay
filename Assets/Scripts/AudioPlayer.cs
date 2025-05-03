@@ -2,6 +2,25 @@ using UnityEngine;
 using UnityEngine.Audio;
 using System.Collections.Generic;
 
+
+/*// Get reference to your AudioPlayer
+AudioPlayer audioPlayer = GetComponent<AudioPlayer>();
+
+// Play a sound
+audioPlayer.Play("SoundName");
+
+// Stop a sound
+audioPlayer.Stop("SoundName");
+
+// Adjust volume of a specific sound
+audioPlayer.SetVolume("SoundName", 0.5f);
+
+// Adjust mixer group volume (must match exposed parameter name)
+audioPlayer.SetMixerVolume("MusicVolume", 0.7f);
+
+*/
+
+
 [System.Serializable]
 public class AudioElement
 {

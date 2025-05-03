@@ -28,4 +28,8 @@ public class ZoneData : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        Debug.Log(transform.name);   
+    }
 }

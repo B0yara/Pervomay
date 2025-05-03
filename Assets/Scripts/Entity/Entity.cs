@@ -77,6 +77,10 @@ public class Entity : _CanDamage
         var closestTarget = FindClosestTarget();
         if (closestTarget != null)
             SetTarget(closestTarget);
+        else
+        {
+            animator.SetInteger("indexAnimation", 0);
+        }
     }
     private Transform FindClosestTarget()
     {
