@@ -30,7 +30,7 @@ public class Entity : _CanDamage
     protected Vector3 velocity;
     protected bool isGrounded;
     protected bool isDead = false;
-    protected Transform currentTarget;
+    public Transform currentTarget;
     protected float nextAttackTime;
     public bool isAttacking = false;
 
@@ -44,7 +44,7 @@ public class Entity : _CanDamage
     // Тип сущности
     public virtual void SetTarget(Transform target)
     {
-        CurrentTarget = target;
+        currentTarget = target;
         animator.SetInteger("indexAnimation", 1);
     }
 
@@ -72,6 +72,7 @@ public class Entity : _CanDamage
     {
         if (CurrentTarget != null && CurrentTarget.gameObject.activeInHierarchy)
             return;
+        
 
         var closestTarget = FindClosestTarget();
         if (closestTarget != null)
