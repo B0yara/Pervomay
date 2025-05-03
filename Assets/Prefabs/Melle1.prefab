@@ -629,7 +629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 100
-  hp: 100
+  hp: 30
   animator: {fileID: 2636390431798868126}
   particleSystem: {fileID: 7813834245324198441}
   deathParticleSystem: {fileID: 0}
@@ -650,7 +650,7 @@ MonoBehaviour:
   detectionRange: 1000
   attackRange: 3
   attackRate: 1
-  attackDamage: 10
+  attackDamage: 5
   projectilePrefab: {fileID: 0}
   attackPoint: {fileID: 0}
   controller: {fileID: 0}
