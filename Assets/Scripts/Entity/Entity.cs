@@ -26,7 +26,7 @@ public class Entity : _CanDamage
 
 
 
-    protected CharacterController controller;
+    public CharacterController controller;
     protected Vector3 velocity;
     protected bool isGrounded;
     protected bool isDead = false;
