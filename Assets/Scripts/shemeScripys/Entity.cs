@@ -204,58 +204,6 @@ public class Entity : _CanDamage
         if (animNumber == 2) isAttacking = true;
         else isAttacking = false;
     }
-
-    /// <summary>
-    /// Обновление анимации
-    /// 1. Атака
-    /// 2. Тяжелая атака
-    /// 3. Бег
-    /// 4. Покой
-    /// 5. Деш
-    /// 
-    /// 
-    /// 1. Attack - bool
-    /// 2. HighAttack - bool
-    /// 3. Idle - none
-    /// 4. Run - bool
-    /// 5. Desh - bool
-    /// 
-    /// 
-    /// 1. при Z - Attack = true
-    /// 2. при X - HighAttack = true
-    /// 3. при C - Desh = true
-    /// 
-    /// 
-    /// 
-    /// 
-    /// 
-    /// 
-    /// Анимации для врагов
-    /// 0. покой
-    /// 1. бег
-    /// 2. Атака
-    /// </summary>
-    /// 
-    public override void Die()
-    {
-        if (isDead) return;
-
-        isDead = true;
-
-        // Анимация смерти
-        if (animator != null && !string.IsNullOrEmpty(deathAnimParam))
-            animator.SetTrigger(deathAnimParam);
-        else if (deathAnimation != null)
-            deathAnimation.Play();
-
-        // Отключаем коллайдер и физику
-        if (controller != null)
-            controller.enabled = false;
-
-        // Уничтожение объекта через время
-        Destroy(gameObject, 5f);
-    }
-
     protected virtual void OnDestroy()
     {
 

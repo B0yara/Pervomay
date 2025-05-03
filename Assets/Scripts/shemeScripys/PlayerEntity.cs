@@ -132,4 +132,12 @@ public class PlayerEntity : Entity
     protected override void UpdateAI() { }
     protected override void FindTarget() { }
     protected override bool CanAttack() => false;
+
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+        GameController contr = GameObject.Find("GameController").GetComponent<GameController>();
+        contr.EndGame();
+
+    }
 }
