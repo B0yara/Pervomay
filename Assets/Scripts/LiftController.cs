@@ -39,7 +39,7 @@ public class LiftController : MonoBehaviour
     {
         Debug.Log("Change floor to: " + floor);
         if (floor == currentFloor) return; // Если этаж не изменился, выходим
-        SceneManager.LoadScene($"{floor}lvl");
+        SceneManager.LoadScene(floor);
         // StartCoroutine(Go(floor));
         // Здесь можно добавить логику для перемещения лифта на нужный этаж
     }
