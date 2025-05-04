@@ -100,7 +100,7 @@ public class _CanDamage : MonoBehaviour
         }
     }
 
-    public virtual void CanIsDamage(bool to)
+    protected virtual void dmg(bool to)
     {
         canDamage = to;
     }

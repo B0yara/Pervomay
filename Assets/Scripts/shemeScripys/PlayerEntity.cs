@@ -133,22 +133,21 @@ public class PlayerEntity : Entity
         if (dashInput && !isDashing && !isAttacking)
         {
             canDamage = false;
-            try
-            {
-                animator.SetBool("Dash", true);
-            }
-            catch
-            {
-
-            }
+            animator.SetBool("Dash", true);
 
             moveSpeed = standardMoveSpeed * dashSpeedMultiplier;
-
         }
+    }
+    public void IsDashing()
+    {
+        isDashing = true;
+        animator.SetBool("isDashing", true);
     }
     private void EndDash()
     {
+        isDashing = false;
         animator.SetBool("Dash", false);
+        animator.SetBool("isDashing", false);
         canDamage = true;
         moveSpeed = standardMoveSpeed;
     }
@@ -158,14 +157,6 @@ public class PlayerEntity : Entity
 
         lighZone.GetComponent<ZoneData>().Initialize(attackDamage, faction.enemyMask);
     }
-    private void HighZone()
-    {
-        highZone.SetActive(!highZone);
-        highZone.GetComponent<ZoneData>().Initialize(
-            attackDamage * heavyAttackMultiplier,
-            faction.enemyMask);
-    }
-
     // ��������� �������� AI-������
     protected override void UpdateAI() { }
     protected override void FindTarget() { }
