@@ -1,6 +1,8 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 [RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(AudioSource))]
 public class Entity : _CanDamage
 {
     public Faction faction;
@@ -16,9 +18,16 @@ public class Entity : _CanDamage
     public float attackRange = 1f;
     public float attackRate = 1f;
     public int attackDamage = 10;
+
     
+    [Header("Audio Clips"), Space]
+    public AudioSource audioSource;
+    public AudioClip hitClip;
+    public AudioClip attackClip1;
+    public AudioClip deathClip;
 
 
+    [Space]
     public CharacterController controller;
     protected Vector3 velocity;
     protected bool isGrounded;
@@ -27,6 +36,7 @@ public class Entity : _CanDamage
     protected float nextAttackTime;
     public bool isAttacking = false;
 
+    public enum SoundType { Hit, Attack, Death }
 
     [Header("Target and AI")]
     public Transform CurrentTarget
@@ -40,11 +50,16 @@ public class Entity : _CanDamage
         currentTarget = target;
         animator.SetInteger("indexAnimation", 1);
     }
+    public virtual void StartSource(AudioClip selectedSound)
+    {
+        audioSource.PlayOneShot(hitClip);
+    }
 
     protected virtual void Start()
     {
         controller = GetComponent<CharacterController>();
         animator ??= GetComponentInChildren<Animator>();
+        audioSource = GetComponent<AudioSource>();
 
 
     }
