@@ -3095,6 +3095,7 @@ MonoBehaviour:
   highZone: {fileID: 0}
   dashSpeedMultiplier: 2
   heavyAttackMultiplier: 2
+  HPController: {fileID: 0}
 --- !u!82 &4410454845975973866
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3516,6 +3517,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7929440695554025031, guid: ff3d42605c25f8248bc91ee5fd3198a6, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8205780013439778071, guid: ff3d42605c25f8248bc91ee5fd3198a6, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8205780013439778071, guid: ff3d42605c25f8248bc91ee5fd3198a6, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8205780013439778071, guid: ff3d42605c25f8248bc91ee5fd3198a6, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8205780013439778071, guid: ff3d42605c25f8248bc91ee5fd3198a6, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8205780013439778071, guid: ff3d42605c25f8248bc91ee5fd3198a6, type: 3}
+      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
