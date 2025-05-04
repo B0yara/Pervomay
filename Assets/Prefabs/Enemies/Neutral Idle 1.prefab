@@ -273,7 +273,7 @@ MonoBehaviour:
   stage: 0
   stageEnd: 0
   enemies:
-  - {fileID: 5511957861777081227, guid: 7ccb84b761a808f489323b39757bd29e, type: 3}
+  - {fileID: 5511957861777081227, guid: d846bb54f1b15d744892259cb3fd92a7, type: 3}
   - {fileID: 5511957861777081227, guid: 3f2b6728a5c66f947ae184db2fe5788d, type: 3}
-  - {fileID: 5511957861777081227, guid: 6a17a93e283f0ca42ac572c5dc1d5f52, type: 3}
+  - {fileID: 5511957861777081227, guid: 06c3eba2bc5f0ae4c892aa8b6eeb246a, type: 3}
   SpawnPoint: {fileID: 0}

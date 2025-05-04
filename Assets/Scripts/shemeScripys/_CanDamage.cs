@@ -33,6 +33,10 @@ public class _CanDamage : MonoBehaviour
         }
     }
 
+    protected virtual int GetHp()
+    {
+        return hp;
+    }
     public void AnimDamage()
     {
         animator.SetBool("IsDamaged", true);
