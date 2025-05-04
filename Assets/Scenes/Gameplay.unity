@@ -1363,7 +1363,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u0418\u0432\u0430\u043D\u0443\u0448\u043A\u0430! \n\n\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0439
     \u043A\u043B\u0430\u0432\u0438\u0448\u0438 \u0441\u0442\u0440\u0435\u043B\u043A\u0438
-    \n\u0434\u043B\u044F \u043F\u0435\u0440\u0435\u0434\u0432\u0438\u0436\u0435\u043D\u0438\u0435"
+    \n\u0434\u043B\u044F \u043F\u0435\u0440\u0435\u0434\u0432\u0438\u0436\u0435\u043D\u0438\u044F"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 21e6db4b0bfaaf84bb90a5472945caac, type: 2}
   m_sharedMaterial: {fileID: -3539943961386314024, guid: 21e6db4b0bfaaf84bb90a5472945caac, type: 2}

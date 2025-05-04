@@ -1269,6 +1269,10 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: -0.038833242
       objectReference: {fileID: 0}
+    - target: {fileID: 5657902894520590522, guid: 315b3d352092e1441948dc3ae348ed54, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a11641d9fe608014cb063c2b0907e74c, type: 2}
     - target: {fileID: 6271397460367904556, guid: 315b3d352092e1441948dc3ae348ed54, type: 3}
       propertyPath: LiftPanel
       value: 
