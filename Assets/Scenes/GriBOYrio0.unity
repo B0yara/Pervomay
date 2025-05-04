@@ -1346,7 +1346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2446978753169023571, guid: 315b3d352092e1441948dc3ae348ed54, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3853532301653252992, guid: 315b3d352092e1441948dc3ae348ed54, type: 3}
       propertyPath: m_Size.z
@@ -1441,6 +1441,7 @@ PrefabInstance:
     - {fileID: 1579414680470864674, guid: 315b3d352092e1441948dc3ae348ed54, type: 3}
     m_RemovedGameObjects:
     - {fileID: 8339645278862241218, guid: 315b3d352092e1441948dc3ae348ed54, type: 3}
+    - {fileID: 2446978753169023571, guid: 315b3d352092e1441948dc3ae348ed54, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8562008664510763070, guid: 315b3d352092e1441948dc3ae348ed54, type: 3}
       insertIndex: 4
@@ -1760,7 +1761,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
