@@ -30,7 +30,7 @@ public class PlayerEntity : Entity
     public int heavyAttackMultiplier = 2;
 
     [Header("Canvas")]
-    public
+    public HPController HPController;
 
     protected override void Start()
     {
