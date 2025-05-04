@@ -152,12 +152,14 @@ public class PlayerEntity : Entity
         canDamage = true;
         moveSpeed = standardMoveSpeed;
     }
-    private void LighZone()
+
+    private void LighZone(int multiplier)
     {
         lighZone.SetActive(!lighZone.activeSelf);
 
-        lighZone.GetComponent<ZoneData>().Initialize(attackDamage, faction.enemyMask);
+        lighZone.GetComponent<ZoneData>().Initialize(attackDamage * multiplier, faction.enemyMask);
     }
+
     // ��������� �������� AI-������
     protected override void UpdateAI() { }
     protected override void FindTarget() { }
