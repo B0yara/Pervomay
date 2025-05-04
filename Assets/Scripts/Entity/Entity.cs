@@ -175,7 +175,7 @@ public class Entity : _CanDamage
                 targetRotation, rotationSpeed * Time.deltaTime);
         }
     }
-    protected void HandleGravity()
+    protected virtual void HandleGravity()
     {
         isGrounded = controller.isGrounded;
 

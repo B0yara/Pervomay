@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -11,6 +12,7 @@ public class EnemyController : MonoBehaviour
     public bool noEnemies = false;
 
     public List<EntityEnemy> activeEnemies = new List<EntityEnemy>();
+    public List<GameObject> spawns = new List<GameObject>();
     private float lastUpdateTime;
     public Action OnEnemiesDead;
 
@@ -39,7 +41,22 @@ public class EnemyController : MonoBehaviour
             activeEnemies.Add(enemy);
         }
     }
-    
+
+    public void RegisterSpawns(GameObject spawn)
+    {
+        if (!spawns.Contains(spawn))
+        {
+            spawns.Add(spawn);
+        }
+    }
+
+    public void UnregisterSpawns(GameObject spawn)
+    {
+        if (spawns.Contains(spawn))
+        {
+            spawns.Remove(spawn);
+        }
+    }
 
     public void UnregisterEnemy(EntityEnemy enemy)
     {

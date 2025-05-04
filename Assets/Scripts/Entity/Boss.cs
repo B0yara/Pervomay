@@ -21,16 +21,17 @@ public class Boss : Entity
 
     protected virtual void FixedUpdate()
     {
-        if (EnemyController.Instance.activeEnemies.Count <= 0)
+        if (EnemyController.Instance.spawns.Count <= 0)
         {
-            stageEnd = true;
-            if (++stage > enemies.Count && stageEnd) stage = -1;
-            
-            if (stageEnd)
+            if (EnemyController.Instance.activeEnemies.Count <= 0)
             {
-                StartStage(++stage);
+                if (++stage > enemies.Count) stage = -1;
+
+                if (stageEnd)
+                {
+                    StartStage(++stage);
+                }
             }
-            
         }
     }
     protected override void Die(float time)
@@ -94,8 +95,13 @@ public class Boss : Entity
     }
     protected override void HandleMovement()
     {
-        Quaternion targetRotation = Quaternion.LookRotation(currentTarget.position);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+       // Quaternion targetRotation = Quaternion.LookRotation(currentTarget.position);
+        //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+    }
+
+    protected override void HandleGravity()
+    {
+        
     }
     private void SummonEnemyGroup(int groupID)
     {
