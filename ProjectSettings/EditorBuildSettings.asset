@@ -12,11 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 964c4f4cb88bc6e498a2438d7e13ddb3
   - enabled: 1
-    path: Assets/Scenes/TempCutScene.unity
-    guid: a840d00d0819e0d4fa4b39ae83d98559
-  - enabled: 1
-    path: Assets/Scenes/Gameplay.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/boss.unity
+    guid: c54d92eab89500e409e25fc5b19613d3
   - enabled: 1
     path: Assets/Scenes/GriBOYrio0.unity
     guid: a0709bdc5fb013548bf10f667b8ad319
@@ -32,6 +29,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/eggsscene.unity
     guid: e100ef68df6946b48bc5ee8109a147b4
+  - enabled: 1
+    path: Assets/Scenes/TempCutScene.unity
+    guid: a840d00d0819e0d4fa4b39ae83d98559
+  - enabled: 1
+    path: Assets/Scenes/Gameplay.unity
+    guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
