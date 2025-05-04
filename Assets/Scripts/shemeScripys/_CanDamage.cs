@@ -73,7 +73,7 @@ public class _CanDamage : MonoBehaviour
         }
     }
 
-    public virtual void Die(float time)
+    protected virtual void Die(float time)
     {
         animator.SetBool("Death", true);
         GetComponent<Collider>().enabled = false;

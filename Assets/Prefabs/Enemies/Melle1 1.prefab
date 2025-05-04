@@ -644,12 +644,12 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 192
   moveSpeed: 7
-  standardMoveSpeed: 5
+  standardMoveSpeed: 7
   rotationSpeed: 10
   gravity: -9.81
   detectionRange: 1000
   attackRange: 3
-  attackRate: 1
+  attackRate: 0.8
   attackDamage: 5
   audioSource: {fileID: 0}
   controller: {fileID: 0}

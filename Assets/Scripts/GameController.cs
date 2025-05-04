@@ -66,4 +66,10 @@ public class GameController : MonoBehaviour
     {
         _virusLoaded = true;
     }
+    public bool VirusIsLoaded()
+    {
+        return _virusLoaded;
+    }
+
+
 }
