@@ -76,6 +76,8 @@ public class _CanDamage : MonoBehaviour
     public virtual void Die(float time)
     {
         animator.SetBool("Death", true);
+        GetComponent<Collider>().enabled = false;
+        GetComponent<CharacterController>().enabled = false;
         // ����������� ������� ����� ��������
         Destroy(gameObject, time); // 2 ������� - ��������� ����� ��� ��������
     }
