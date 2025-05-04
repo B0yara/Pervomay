@@ -57947,13 +57947,6 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.033333335
-    functionName: EndAttack
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
   - time: 0.16666667
     functionName: LighZone
     data: 
@@ -57968,10 +57961,17 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.4
+    functionName: EndAttack
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 1.0666667
     functionName: StartSource
     data: 
-    objectReferenceParameter: {fileID: 8300000, guid: 130dc8600ccb4b0479b7b5072ed161de, type: 3}
+    objectReferenceParameter: {fileID: 8300000, guid: 06c795b7dc31bb344a5681b8ac601c15, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

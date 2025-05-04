@@ -272,6 +272,13 @@ MonoBehaviour:
   controller: {fileID: 534968294}
   currentTarget: {fileID: 0}
   isAttacking: 0
+  stage: 0
+  stageEnd: 0
+  enemies:
+  - {fileID: 5511957861777081227, guid: 7ccb84b761a808f489323b39757bd29e, type: 3}
+  - {fileID: 5511957861777081227, guid: 3f2b6728a5c66f947ae184db2fe5788d, type: 3}
+  - {fileID: 5511957861777081227, guid: 6a17a93e283f0ca42ac572c5dc1d5f52, type: 3}
+  SpawnPoint: {fileID: 0}
 --- !u!82 &534968293
 AudioSource:
   m_ObjectHideFlags: 0
@@ -638,6 +645,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groupUpdateInterval: 0.3
+  noEnemies: 0
+  activeEnemies: []
 --- !u!114 &1801313210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -652,6 +661,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameOverPanel: {fileID: 0}
   NewItemPopup: {fileID: 0}
+  bossIsDead: 0
 --- !u!1001 &2386566757653000326
 PrefabInstance:
   m_ObjectHideFlags: 0

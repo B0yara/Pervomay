@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.SceneManagement;
@@ -11,6 +12,7 @@ public class GameController : MonoBehaviour
     NewItemPopup NewItemPopup;
     public NewItemPopup newItemPopup => NewItemPopup;
     static GameController _instance;
+    public bool bossIsDead = false;
     public static GameController Instance => _instance;
 
     public Inventory Inventory;
@@ -70,6 +72,18 @@ public class GameController : MonoBehaviour
     {
         return _virusLoaded;
     }
-
+    public void BossIsDeath()
+    {
+        if (_virusLoaded)
+        {
+            bossIsDead = true;
+            List<EntityEnemy> enemies = EnemyController.Instance.activeEnemies;
+            foreach (var entity in enemies)
+            {
+                EnemyController.Instance.UnregisterEnemy(entity);
+                Destroy(entity.gameObject);
+            }
+        }
+    }
 
 }

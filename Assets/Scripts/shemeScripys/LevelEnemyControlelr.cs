@@ -8,8 +8,9 @@ public class EnemyController : MonoBehaviour
 
     [Header("Group Behavior")]
     public float groupUpdateInterval = 0.3f;
+    public bool noEnemies = false;
 
-    private List<EntityEnemy> activeEnemies = new List<EntityEnemy>();
+    public List<EntityEnemy> activeEnemies = new List<EntityEnemy>();
     private float lastUpdateTime;
     public Action OnEnemiesDead;
 
@@ -31,7 +32,6 @@ public class EnemyController : MonoBehaviour
             lastUpdateTime = Time.time;
         }
     }
-
     public void RegisterEnemy(EntityEnemy enemy)
     {
         if (!activeEnemies.Contains(enemy))
@@ -39,15 +39,18 @@ public class EnemyController : MonoBehaviour
             activeEnemies.Add(enemy);
         }
     }
+    
 
     public void UnregisterEnemy(EntityEnemy enemy)
     {
         if (activeEnemies.Contains(enemy))
         {
+            noEnemies = false;
             activeEnemies.Remove(enemy);
         }
         if (activeEnemies.Count == 0)
         {
+            noEnemies = true;
             OnEnemiesDead?.Invoke();
         }
     }
