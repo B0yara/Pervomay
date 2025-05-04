@@ -22,6 +22,7 @@ public class BabkaController : MonoBehaviour
     private bool _playerInTrigger = false;
     private int _currentTextIndex = 0;
 
+
     void OnTriggerEnter(Collider other)
     {
         Debug.Log("Enter comp");
