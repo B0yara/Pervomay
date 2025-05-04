@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Boss : Entity
 {
-    [SerializeField] private int stage = -1;
+    [SerializeField] private int stage = 0;
     [SerializeField] bool stageEnd = false;
 
 
@@ -14,7 +14,7 @@ public class Boss : Entity
     protected override void Start()
     {
         base.Start();
-        StartStage(0);
+        StartStage(1);
         FindTarget();
 
     }
@@ -23,7 +23,7 @@ public class Boss : Entity
     {
         if (EnemyController.Instance.activeEnemies.Count <= 0)
         {
-            if (++stage > enemies.Count && stageEnd) stage = -1;
+            if (++stage > enemies.Count && stageEnd) stage = 0;
             
             StartStage(++stage);
         }
@@ -58,8 +58,9 @@ public class Boss : Entity
     }
     protected virtual void StartStage(int stage)
     {
+        this.stage = stage;
         stageEnd = true;
-
+        if (stage > 3) stage = 1;
         switch (stage)
         {
             case 1:
@@ -84,20 +85,17 @@ public class Boss : Entity
                 Debug.LogError($"Неизвестный этап: {stage}");
                 break;
         }
+        
     }
     protected override void HandleMovement()
     {
         Quaternion targetRotation = Quaternion.LookRotation(currentTarget.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
-
-    protected override void Update()
-    {
-        base.Update();
-    }
     private void SummonEnemyGroup(int groupID)
     {
         Instantiate(enemies[groupID], SpawnPoint);
+
     }
 
 }
