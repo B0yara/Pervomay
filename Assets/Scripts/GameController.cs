@@ -9,6 +9,8 @@ public class GameController : MonoBehaviour
     [SerializeField]
     GameObject GameOverPanel;
     [SerializeField]
+    GameObject PauseButton;
+    [SerializeField]
     NewItemPopup NewItemPopup;
     public NewItemPopup newItemPopup => NewItemPopup;
     static GameController _instance;
@@ -86,4 +88,8 @@ public class GameController : MonoBehaviour
         }
     }
 
+    internal void SwitchPauseButton(bool v)
+    {
+        PauseButton.SetActive(v);
+    }
 }
