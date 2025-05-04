@@ -28,11 +28,15 @@ public class _CanDamage : MonoBehaviour
 
                 particleSystem.Play();
                 hp -= damage;
+                GetHp();
             }
             CheckHP();
         }
     }
+    protected virtual void GetHp()
+    {
 
+    }
     public void AnimDamage()
     {
         animator.SetBool("IsDamaged", true);

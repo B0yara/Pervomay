@@ -136,22 +136,6 @@ public class Entity : _CanDamage
         StartAnimation(2);
     }
     
-    // ���������� �� �������� ����� (��� ���������)
-    public virtual void OnAttackAnimationHit()
-    {
-        if (!isAttacking) return;
-
-        // ���������, ��� �� ��� ���� � ���� ���������
-        if (CanAttack())
-        {
-            if (CurrentTarget.TryGetComponent<_CanDamage>(out var damageable))
-            {
-                damageable.GetDamage(attackDamage);
-            }
-        }
-
-    }
-    // ������������ ���� � ���������
     private void OnDrawGizmosSelected()
     {
         if (CurrentTarget != null)
