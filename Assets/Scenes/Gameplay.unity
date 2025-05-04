@@ -3914,10 +3914,10 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
-  - name: BG
-    clip: {fileID: 8300000, guid: 14eb5a8e9ed470544bcf7e5cc1672f2b, type: 3}
+  - name: BossMusic
+    clip: {fileID: 8300000, guid: dd9403bc47f68c64496dbec2d0b4c000, type: 3}
     mixerGroup: {fileID: -398407804671845229, guid: 3e7708f1845578d459a4d9195adf7585, type: 2}
-    volume: 0.8
+    volume: 0.59
     pitch: 1
     loop: 1
     playOnAwake: 1
