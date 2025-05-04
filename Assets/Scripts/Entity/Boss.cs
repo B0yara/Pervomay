@@ -10,7 +10,7 @@ public class Boss : Entity
 
     [SerializeField] private List<GameObject> enemies = new List<GameObject>();
     [SerializeField] private Transform SpawnPoint;
-    
+
     protected override void Start()
     {
         base.Start();
@@ -36,10 +36,14 @@ public class Boss : Entity
     }
     protected override void Die(float time)
     {
+        Debug.Log("[Boss] РџС‹С‚Р°РµРјСЃСЏ СЃРґРѕС…РЅСѓС‚СЊ");
         if (GameController.Instance != null)
         {
+            Debug.Log("[Boss] GameController !null");
+
             if (GameController.Instance.VirusIsLoaded())
             {
+                Debug.Log("[Boss] Р’РёСЂСѓСЃ РµСЃС‚СЊ");
                 animator.SetBool("EndDeath", true);
                 GameObject.Find("EndCanvas").SetActive(true);
                 GameController.Instance.BossIsDeath();
@@ -49,12 +53,18 @@ public class Boss : Entity
             }
             else
             {
+                Debug.Log("[Boss] Р’РёСЂСѓСЃР° РЅРµС‚");
                 animator.SetBool("Death", true);
                 animator.SetBool("EndDeath", false);
                 GetComponent<Collider>().enabled = false;
                 GetComponent<CharacterController>().enabled = false;
             }
         }
+
+    }
+
+    void TryToDie()
+    {
 
     }
     protected virtual void BossLife()
@@ -70,38 +80,38 @@ public class Boss : Entity
         switch (stage)
         {
             case 1:
-                // Этап 1: Призыв первой группы врагов
+                // пїЅпїЅпїЅпїЅ 1: пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
                 SummonEnemyGroup(1);
-                Debug.Log("Этап 1: Вызвана группа врагов 1");
+                Debug.Log("пїЅпїЅпїЅпїЅ 1: пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ 1");
                 break;
 
             case 2:
-                // Этап 2: Призыв второй группы врагов
+                // пїЅпїЅпїЅпїЅ 2: пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
                 SummonEnemyGroup(2);
-                Debug.Log("Этап 2: Вызвана группа врагов 2");
+                Debug.Log("пїЅпїЅпїЅпїЅ 2: пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ 2");
                 break;
 
             case 3:
-                // Этап 3: Призыв третьей группы врагов
+                // пїЅпїЅпїЅпїЅ 3: пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
                 SummonEnemyGroup(3);
-                Debug.Log("Этап 3: Вызвана группа врагов 3");
+                Debug.Log("пїЅпїЅпїЅпїЅ 3: пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ 3");
                 break;
 
             default:
-                Debug.LogError($"Неизвестный этап: {stage}");
+                Debug.LogError($"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ: {stage}");
                 break;
         }
-        
+
     }
     protected override void HandleMovement()
     {
-       // Quaternion targetRotation = Quaternion.LookRotation(currentTarget.position);
+        // Quaternion targetRotation = Quaternion.LookRotation(currentTarget.position);
         //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 
     protected override void HandleGravity()
     {
-        
+
     }
     private void SummonEnemyGroup(int groupID)
     {

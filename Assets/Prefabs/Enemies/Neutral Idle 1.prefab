@@ -254,7 +254,7 @@ MonoBehaviour:
   canDamage: 1
   isDamaged: 0
   faction:
-    factionType: 3
+    factionType: 2
     enemyMask:
       serializedVersion: 2
       m_Bits: 192
