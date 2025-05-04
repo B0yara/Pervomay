@@ -65,12 +65,11 @@ public class RangeEnemy : EntityEnemy
     protected override void Attack()
     {
         base.Attack();
-        LaunchProjectile();
         isAttacking = false;
         Debug.Log($"RangeFire: {nextAttackTime}={Time.time + 1f / attackRate}");
         
     }
-    protected virtual void LaunchProjectile()
+    public virtual void LaunchProjectile()
     {
         Projectile projectile = Instantiate(projectilePrefab, attackPoint.position, attackPoint.rotation);
         projectile.Initialize(attackDamage, CurrentTarget, faction.enemyMask);

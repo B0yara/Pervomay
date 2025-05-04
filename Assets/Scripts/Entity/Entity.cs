@@ -22,9 +22,6 @@ public class Entity : _CanDamage
     
     [Header("Audio Clips"), Space]
     public AudioSource audioSource;
-    public AudioClip hitClip;
-    public AudioClip attackClip1;
-    public AudioClip deathClip;
 
 
     [Space]
@@ -35,8 +32,6 @@ public class Entity : _CanDamage
     public Transform currentTarget;
     protected float nextAttackTime;
     public bool isAttacking = false;
-
-    public enum SoundType { Hit, Attack, Death }
 
     [Header("Target and AI")]
     public Transform CurrentTarget
@@ -52,7 +47,7 @@ public class Entity : _CanDamage
     }
     public virtual void StartSource(AudioClip selectedSound)
     {
-        audioSource.PlayOneShot(hitClip);
+        audioSource.PlayOneShot(selectedSound);
     }
 
     protected virtual void Start()

@@ -61165,7 +61165,14 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.73333335
+  - time: 0.76666665
+    functionName: StartSource
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 8b4580d1b60fc1c4c8c9ce1439b325ee, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.0333333
     functionName: EndAttack
     data: 
     objectReferenceParameter: {fileID: 0}
