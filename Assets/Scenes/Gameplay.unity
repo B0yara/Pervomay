@@ -2605,8 +2605,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ca3d76bed229f4f479526c7b81da6632, type: 3}
       propertyPath: m_Name
-      value: Neutral Idle
+      value: Koshei
       objectReference: {fileID: 0}
+    - target: {fileID: 5299752446334504241, guid: ca3d76bed229f4f479526c7b81da6632, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f5cd02cfbe3c2394d930e37a1de93d44, type: 2}
+    - target: {fileID: 5299752446334504241, guid: ca3d76bed229f4f479526c7b81da6632, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3645a4833d076394babc5f0c5e7a94e5, type: 2}
+    - target: {fileID: 5299752446334504241, guid: ca3d76bed229f4f479526c7b81da6632, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8708e6e99390e754983f4d4d9f96900d, type: 2}
+    - target: {fileID: 5299752446334504241, guid: ca3d76bed229f4f479526c7b81da6632, type: 3}
+      propertyPath: 'm_Materials.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 02d01dc65a0dea842ad702d69a1e1a99, type: 2}
+    - target: {fileID: 5299752446334504241, guid: ca3d76bed229f4f479526c7b81da6632, type: 3}
+      propertyPath: 'm_Materials.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2100000, guid: abaec44802b1f094ebcf659f84cc6b01, type: 2}
+    - target: {fileID: 5299752446334504241, guid: ca3d76bed229f4f479526c7b81da6632, type: 3}
+      propertyPath: 'm_Materials.Array.data[5]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 02d01dc65a0dea842ad702d69a1e1a99, type: 2}
+    - target: {fileID: 5299752446334504241, guid: ca3d76bed229f4f479526c7b81da6632, type: 3}
+      propertyPath: 'm_Materials.Array.data[7]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6346b26fc56c34244900857cd76b1414, type: 2}
+    - target: {fileID: 5299752446334504241, guid: ca3d76bed229f4f479526c7b81da6632, type: 3}
+      propertyPath: 'm_Materials.Array.data[9]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3645a4833d076394babc5f0c5e7a94e5, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

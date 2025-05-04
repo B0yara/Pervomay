@@ -1831,7 +1831,7 @@ MonoBehaviour:
     playOnAwake: 0
     source: {fileID: 0}
   - name: BG
-    clip: {fileID: 8300000, guid: 14eb5a8e9ed470544bcf7e5cc1672f2b, type: 3}
+    clip: {fileID: 8300000, guid: 9d909ba89cf116341b755cd5e52d8859, type: 3}
     mixerGroup: {fileID: -398407804671845229, guid: 3e7708f1845578d459a4d9195adf7585, type: 2}
     volume: 0.8
     pitch: 1
