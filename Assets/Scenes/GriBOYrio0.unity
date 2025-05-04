@@ -608,6 +608,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 3781125585180016981, guid: 0c636b33f07682f4da838587118f0e50, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3794714899451262913, guid: 0c636b33f07682f4da838587118f0e50, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -1261,6 +1265,10 @@ PrefabInstance:
       propertyPath: LiftPanel
       value: 
       objectReference: {fileID: 485533788}
+    - target: {fileID: 6271397460367904556, guid: 315b3d352092e1441948dc3ae348ed54, type: 3}
+      propertyPath: currentFloor
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7845510563219505770, guid: 315b3d352092e1441948dc3ae348ed54, type: 3}
       propertyPath: m_Name
       value: Location
@@ -2866,6 +2874,10 @@ PrefabInstance:
     - target: {fileID: 867034330969444990, guid: a021c14de162e2a499082195825d7e79, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -321.8246
+      objectReference: {fileID: 0}
+    - target: {fileID: 907719163612449583, guid: a021c14de162e2a499082195825d7e79, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1745543762126147814, guid: a021c14de162e2a499082195825d7e79, type: 3}
       propertyPath: m_SizeDelta.x
