@@ -18,13 +18,17 @@ public class _CanDamage : MonoBehaviour
         hp = Mathf.Clamp(hp, 0, maxHP);
     }
 
-    public void GetDamage(int damage)
+    public void GetDamage(int damage, bool isRange = false)
     {
         if (canDamage)
         {
             if (hp > 0)
             {
-                animator.SetBool("TakeDamage", true);
+
+                if (!isRange)
+                {
+                    animator.SetBool("TakeDamage", true);
+                }
                 try
                 {
                     particleSystem.Play();
