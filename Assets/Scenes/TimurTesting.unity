@@ -249,14 +249,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 100
-  hp: 100
+  hp: 1
   animator: {fileID: 534968291}
   particleSystem: {fileID: 0}
   deathParticleSystem: {fileID: 0}
   canDamage: 1
   isDamaged: 0
   faction:
-    factionType: 2
+    factionType: 3
     enemyMask:
       serializedVersion: 2
       m_Bits: 192
