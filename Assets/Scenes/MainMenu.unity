@@ -3470,7 +3470,7 @@ MonoBehaviour:
     playOnAwake: 0
     source: {fileID: 0}
   - name: BG
-    clip: {fileID: 8300000, guid: 14eb5a8e9ed470544bcf7e5cc1672f2b, type: 3}
+    clip: {fileID: 8300000, guid: 6f3ab4a9eabe6a045a2ed77edc98a8a6, type: 3}
     mixerGroup: {fileID: -398407804671845229, guid: 3e7708f1845578d459a4d9195adf7585, type: 2}
     volume: 0.8
     pitch: 1
@@ -14045,7 +14045,7 @@ Transform:
   m_GameObject: {fileID: 8992282360311981668}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -257.99, y: -55.8, z: -709.4}
+  m_LocalPosition: {x: -257.99, y: -55.8, z: -630.64}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 1
   m_Children:
