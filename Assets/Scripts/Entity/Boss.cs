@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Boss : Entity
 {
-    [SerializeField] private int stage = -1;
+    [SerializeField] private int stage = 0;
     [SerializeField] bool stageEnd = false;
 
 
@@ -14,9 +14,19 @@ public class Boss : Entity
     protected override void Start()
     {
         base.Start();
-        BossStage(0);
+        StartStage(1);
         FindTarget();
 
+    }
+
+    protected virtual void FixedUpdate()
+    {
+        if (EnemyController.Instance.activeEnemies.Count <= 0)
+        {
+            if (++stage > enemies.Count && stageEnd) stage = 0;
+            
+            StartStage(++stage);
+        }
     }
     protected override void Die(float time)
     {
@@ -27,6 +37,8 @@ public class Boss : Entity
                 animator.SetBool("EndDeath", true);
                 GameObject.Find("EndCanvas").SetActive(true);
                 GameController.Instance.BossIsDeath();
+                GetComponent<Collider>().enabled = false;
+                GetComponent<CharacterController>().enabled = false;
                 base.Die(time);
             }
             else
@@ -35,33 +47,20 @@ public class Boss : Entity
                 animator.SetBool("EndDeath", false);
                 GetComponent<Collider>().enabled = false;
                 GetComponent<CharacterController>().enabled = false;
-                BossLife();
             }
         }
 
     }
-
     protected virtual void BossLife()
     {
-        BossLife();
-    }
-    protected virtual void BossStage(int stage)
-    {
-        if (this.stage != stage || !GameController.Instance.VirusIsLoaded())
-        {
-            stageEnd = false;
-            StartStage(stage);
-        }
-        else
-        {
-            stageEnd = true;
-        }
-        this.stage = stage;
+        stage = 0;
+        StartStage(stage);
     }
     protected virtual void StartStage(int stage)
     {
+        this.stage = stage;
         stageEnd = true;
-
+        if (stage > 3) stage = 1;
         switch (stage)
         {
             case 1:
@@ -86,15 +85,17 @@ public class Boss : Entity
                 Debug.LogError($"Неизвестный этап: {stage}");
                 break;
         }
+        
     }
-
-    protected override void Update()
+    protected override void HandleMovement()
     {
-        base.Update();
+        Quaternion targetRotation = Quaternion.LookRotation(currentTarget.position);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
     private void SummonEnemyGroup(int groupID)
     {
         Instantiate(enemies[groupID], SpawnPoint);
+
     }
 
 }
