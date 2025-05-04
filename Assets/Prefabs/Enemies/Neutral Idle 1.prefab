@@ -262,7 +262,7 @@ MonoBehaviour:
   standardMoveSpeed: 5
   rotationSpeed: 10
   gravity: -9.81
-  detectionRange: 10
+  detectionRange: 10000
   attackRange: 1
   attackRate: 1
   attackDamage: 10
