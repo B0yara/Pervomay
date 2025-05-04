@@ -1,16 +1,19 @@
 using UnityEngine;
+using UnityEngine.PlayerLoop;
+using UnityEngine.UI;
 
 public class HPController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    Slider _slider;
+    public void Init(int maxHP)
     {
-        
+        _slider = GetComponent<Slider>();
+        _slider.maxValue = maxHP;
+        _slider.value = maxHP;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetValue(int curHp)
     {
-        
+        _slider.value = curHp;
     }
 }
