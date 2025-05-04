@@ -1268,6 +1268,108 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3072194210885385382, guid: 315b3d352092e1441948dc3ae348ed54, type: 3}
   m_PrefabInstance: {fileID: 97302546581108527}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1495902442
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1495902444}
+  - component: {fileID: 1495902443}
+  m_Layer: 0
+  m_Name: AudioPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1495902443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495902442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66de9ba998d77274e938710890f91d9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterMixer: {fileID: 24100000, guid: 3e7708f1845578d459a4d9195adf7585, type: 2}
+  audioElements:
+  - name: Hover
+    clip: {fileID: 8300000, guid: 7077cd4064516514e9cf421db94b9ae3, type: 3}
+    mixerGroup: {fileID: -5033367694489168981, guid: 3e7708f1845578d459a4d9195adf7585, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: BG
+    clip: {fileID: 8300000, guid: 9d909ba89cf116341b755cd5e52d8859, type: 3}
+    mixerGroup: {fileID: -398407804671845229, guid: 3e7708f1845578d459a4d9195adf7585, type: 2}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    playOnAwake: 1
+    source: {fileID: 0}
+  - name: PlayerAttack
+    clip: {fileID: 8300000, guid: 8b4580d1b60fc1c4c8c9ce1439b325ee, type: 3}
+    mixerGroup: {fileID: -5033367694489168981, guid: 3e7708f1845578d459a4d9195adf7585, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: ShootEnemy
+    clip: {fileID: 8300000, guid: 2dd1cf1a19126fa419a2befa71dbb151, type: 3}
+    mixerGroup: {fileID: -5033367694489168981, guid: 3e7708f1845578d459a4d9195adf7585, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: book
+    clip: {fileID: 8300000, guid: 8bab23ed5d7458d4c9d4a2e9d66832a8, type: 3}
+    mixerGroup: {fileID: -5033367694489168981, guid: 3e7708f1845578d459a4d9195adf7585, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: page
+    clip: {fileID: 8300000, guid: eeb0ad489640a424f9d44c79fb178423, type: 3}
+    mixerGroup: {fileID: -5033367694489168981, guid: 3e7708f1845578d459a4d9195adf7585, type: 2}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: enteract
+    clip: {fileID: 8300000, guid: 89ca8427fc8b2214db1c43069f2fe14d, type: 3}
+    mixerGroup: {fileID: -5033367694489168981, guid: 3e7708f1845578d459a4d9195adf7585, type: 2}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+--- !u!4 &1495902444
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495902442}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.3279206, y: 1.6189227, z: 1.1424947}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1529922542
 GameObject:
   m_ObjectHideFlags: 0
@@ -2614,3 +2716,4 @@ SceneRoots:
   - {fileID: 1984568437}
   - {fileID: 2948141207041763321}
   - {fileID: 6238966803381425702}
+  - {fileID: 1495902444}
