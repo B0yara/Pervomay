@@ -18,7 +18,7 @@ public class _CanDamage : MonoBehaviour
         hp = Mathf.Clamp(hp, 0, maxHP);
     }
 
-    protected virtual void GetDamage(int damage)
+    public void GetDamage(int damage)
     {
         if (canDamage)
         {
@@ -28,14 +28,14 @@ public class _CanDamage : MonoBehaviour
 
                 particleSystem.Play();
                 hp -= damage;
+                GetHp();
             }
             CheckHP();
         }
     }
-
-    protected virtual int GetHp()
+    protected virtual void GetHp()
     {
-        return hp;
+
     }
     public void AnimDamage()
     {

@@ -170,14 +170,8 @@ public class PlayerEntity : Entity
     {
         base.OnDestroy();
     }
-
-    protected override void GetDamage(int damage)
+    protected override void GetHp()
     {
-        base.GetDamage(damage);
-    }
 
-    protected override int GetHp()
-    {
-        return hp;
     }
 }
