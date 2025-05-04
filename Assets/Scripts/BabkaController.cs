@@ -66,7 +66,7 @@ public class BabkaController : MonoBehaviour
     void Interact()
     {
         var inv = GameController.Instance.Inventory;
-        if (inv.Contains(VirusUsb))
+        if (inv.Contains(VirusUsb) || GameController.Instance.VirusLoaded)
         {
             return;
         }

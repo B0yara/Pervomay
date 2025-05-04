@@ -48,7 +48,7 @@ public class ServerController : MonoBehaviour
         {
             DialogHint.gameObject.SetActive(false);
             _playerInTrigger = false;
-            _haveVirus = true;
+            _haveVirus = false;
         }
     }
 
