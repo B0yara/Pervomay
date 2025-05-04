@@ -67954,7 +67954,7 @@ AnimationClip:
   - time: 0.93333334
     functionName: StartSource
     data: 
-    objectReferenceParameter: {fileID: 8300000, guid: 364bed0e78f8699498d75ad5bd3eb689, type: 3}
+    objectReferenceParameter: {fileID: 8300000, guid: 543abeb3211206f4d80b6ff6a0316f6e, type: 3}
     floatParameter: 0
     intParameter: 1
     messageOptions: 0
