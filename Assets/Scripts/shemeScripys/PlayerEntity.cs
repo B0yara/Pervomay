@@ -161,7 +161,7 @@ public class PlayerEntity : Entity
     protected override void UpdateAI() { }
     protected override void FindTarget() { }
     protected override bool CanAttack() => false;
-    public override void Die(float time)
+    protected override void Die(float time)
     {
         base.Die(time);
         GameController.Instance.GameOver();

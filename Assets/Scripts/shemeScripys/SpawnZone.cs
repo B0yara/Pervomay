@@ -21,7 +21,4 @@ public class SpawnZone : MonoBehaviour
     {
         _spawnSystem.Play();
     }
-
-
-
 }
