@@ -29,6 +29,9 @@ public class PlayerEntity : Entity
     public float dashSpeedMultiplier = 2f;
     public int heavyAttackMultiplier = 2;
 
+    [Header("Canvas")]
+    public HPController HPController;
+
     protected override void Start()
     {
         base.Start();

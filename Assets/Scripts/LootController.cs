@@ -7,10 +7,12 @@ public class LootController : MonoBehaviour
 
     [SerializeField]
     float RotationSpeed = 1f;
+    GameController _gameController;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (GameController.Instance.Inventory.Contains(Item))
+        _gameController = GameController.Instance;
+        if (_gameController.Inventory.Contains(Item) || _gameController.Inventory.Contains(BabkaController.VirusUsb) || _gameController.VirusLoaded)
         {
             Destroy(gameObject);
         }
