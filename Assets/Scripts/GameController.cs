@@ -1,15 +1,22 @@
+using System;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
     [SerializeField]
     GameObject GameOverPanel;
-
+    [SerializeField]
+    NewItemPopup NewItemPopup;
+    public NewItemPopup newItemPopup => NewItemPopup;
     static GameController _instance;
     public static GameController Instance => _instance;
 
     public Inventory Inventory;
+
+    private bool _virusLoaded = false;
+    public bool VirusLoaded => _virusLoaded;
 
     private void Awake()
     {
@@ -27,7 +34,7 @@ public class GameController : MonoBehaviour
 
     void Init()
     {
-        Inventory = new Inventory();
+        Inventory = new Inventory(this);
         MainMenu();
     }
 
@@ -45,6 +52,8 @@ public class GameController : MonoBehaviour
     public void MainMenu()
     {
         GameOverPanel.SetActive(false);
+        Inventory.Clear();
+        _virusLoaded = false;
         SceneManager.LoadScene(1);
     }
 
@@ -53,5 +62,8 @@ public class GameController : MonoBehaviour
         Application.Quit();
     }
 
-
+    internal void LoadVirus()
+    {
+        _virusLoaded = true;
+    }
 }

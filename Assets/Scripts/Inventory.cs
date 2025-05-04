@@ -16,10 +16,12 @@ public struct Item
 }
 public class Inventory
 {
+    GameController _gameController;
     private List<Item> _items;
-    public Inventory()
+    public Inventory(GameController gameController)
     {
         _items = new List<Item>();
+        _gameController = gameController;
     }
 
     public bool Contains(Item item)
@@ -32,6 +34,7 @@ public class Inventory
         if (!Contains(item))
         {
             _items.Add(item);
+            _gameController.newItemPopup.ShowNewItem(item.itemName);
         }
     }
     public void RemoveItem(Item item)
@@ -40,6 +43,10 @@ public class Inventory
         {
             _items.Remove(item);
         }
+    }
+    public void Clear()
+    {
+        _items.Clear();
     }
 
 

@@ -25,7 +25,7 @@ public class CompComtroller : MonoBehaviour
 
     private bool _playerInTrigger = false;
     private bool _pinSuccess = false;
-    private static Item BackupUsb = new Item { itemName = "BackupUSB", itemID = 3 };
+    public static Item BackupUsb = new Item { itemName = "BackupUSB", itemID = 3 };
 
     List<Item> _items = new List<Item>();
     void OnTriggerEnter(Collider other)
@@ -45,7 +45,7 @@ public class CompComtroller : MonoBehaviour
         Debug.Log("Exit comp");
         if (other.CompareTag("Player"))
         {
-
+            PCPanel.SetActive(false);
             CompHint.SetActive(false);
             _playerInTrigger = false;
         }
@@ -88,6 +88,7 @@ public class CompComtroller : MonoBehaviour
             inv.RemoveItem(item);
         }
         inv.AddItem(BackupUsb);
+        PCPanel.SetActive(true);
     }
 
     internal void PlaceItem(Item item)
