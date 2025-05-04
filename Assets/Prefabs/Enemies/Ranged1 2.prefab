@@ -46,7 +46,7 @@ PrefabInstance:
     - target: {fileID: -9063589543538667217, guid: c67b15f81d3c779479d3588e36ea13e0, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2100000, guid: f8b62c9eacc81f54a9e0e6ca8386507c, type: 2}
     - target: {fileID: -9063589543538667217, guid: c67b15f81d3c779479d3588e36ea13e0, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
@@ -55,6 +55,30 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[2]'
       value: 
       objectReference: {fileID: 2100000, guid: eedb558ca9c85994187669a044186997, type: 2}
+    - target: {fileID: -9063589543538667217, guid: c67b15f81d3c779479d3588e36ea13e0, type: 3}
+      propertyPath: 'm_Materials.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 27db0a5c7f7be5249b7613bebf4f96a5, type: 2}
+    - target: {fileID: -9063589543538667217, guid: c67b15f81d3c779479d3588e36ea13e0, type: 3}
+      propertyPath: 'm_Materials.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 193220baf1d8c6b4cb9c0d3a87c165ac, type: 2}
+    - target: {fileID: -9063589543538667217, guid: c67b15f81d3c779479d3588e36ea13e0, type: 3}
+      propertyPath: 'm_Materials.Array.data[5]'
+      value: 
+      objectReference: {fileID: 2100000, guid: efa9871660fb7c244b6e6ad3b7036dd8, type: 2}
+    - target: {fileID: -9063589543538667217, guid: c67b15f81d3c779479d3588e36ea13e0, type: 3}
+      propertyPath: 'm_Materials.Array.data[6]'
+      value: 
+      objectReference: {fileID: 2100000, guid: efa9871660fb7c244b6e6ad3b7036dd8, type: 2}
+    - target: {fileID: -9063589543538667217, guid: c67b15f81d3c779479d3588e36ea13e0, type: 3}
+      propertyPath: 'm_Materials.Array.data[7]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2b4c477e313699a4da41c202f831ed7f, type: 2}
+    - target: {fileID: -9063589543538667217, guid: c67b15f81d3c779479d3588e36ea13e0, type: 3}
+      propertyPath: 'm_Materials.Array.data[8]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 27db0a5c7f7be5249b7613bebf4f96a5, type: 2}
     - target: {fileID: -8679921383154817045, guid: c67b15f81d3c779479d3588e36ea13e0, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.13
@@ -481,9 +505,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c67b15f81d3c779479d3588e36ea13e0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9042205404922935412}
-    - targetCorrespondingSourceObject: {fileID: 2660149781367514763, guid: c67b15f81d3c779479d3588e36ea13e0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8707995304932781814}
   m_SourcePrefab: {fileID: 100100000, guid: c67b15f81d3c779479d3588e36ea13e0, type: 3}
 --- !u!1 &448516853565915941 stripped
 GameObject:
@@ -673,35 +694,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!137 &634923119474208603 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -9063589543538667217, guid: c67b15f81d3c779479d3588e36ea13e0, type: 3}
-  m_PrefabInstance: {fileID: 790410744165285492}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &969016224151427487 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c67b15f81d3c779479d3588e36ea13e0, type: 3}
   m_PrefabInstance: {fileID: 790410744165285492}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &3319955859292936447 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2660149781367514763, guid: c67b15f81d3c779479d3588e36ea13e0, type: 3}
-  m_PrefabInstance: {fileID: 790410744165285492}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8707995304932781814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3319955859292936447}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1dc0d9a58b8b364f88c3aa4cc880638, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  color: {r: 0.36063266, g: 0, b: 0.38679248, a: 1}
-  modelRenderer: {fileID: 634923119474208603}
 --- !u!1001 &2529833661384636758
 PrefabInstance:
   m_ObjectHideFlags: 0
