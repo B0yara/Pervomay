@@ -4760,6 +4760,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1916940669}
     m_Modifications:
+    - target: {fileID: 198849688121582556, guid: 55e9b36d0bd7087419ae199375946fa3, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 66600fae5bc3fca489ca150bd8f21762, type: 2}
     - target: {fileID: 1171553019582017255, guid: 55e9b36d0bd7087419ae199375946fa3, type: 3}
       propertyPath: m_Name
       value: InventoryItemUSBEmpty
