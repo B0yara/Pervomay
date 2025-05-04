@@ -558,7 +558,7 @@ MonoBehaviour:
     enemyMask:
       serializedVersion: 2
       m_Bits: 192
-  moveSpeed: 5
+  moveSpeed: 3
   standardMoveSpeed: 5
   rotationSpeed: 10
   gravity: -9.81
