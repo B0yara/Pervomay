@@ -15,7 +15,7 @@ public class NewItemPopup : MonoBehaviour
     public void ShowNewItem(string name)
     {
         ItemName.text = name;
-        Icon.sprite = Resources.Load(string.Format(PATH_MASK, name)) as Sprite;
+        Icon.sprite = Resources.Load<Sprite>(string.Format(PATH_MASK, name));
         gameObject.SetActive(true);
         Invoke("Close", ShowTime);
     }

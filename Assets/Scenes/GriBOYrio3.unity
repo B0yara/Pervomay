@@ -683,6 +683,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 3781125585180016981, guid: 0c636b33f07682f4da838587118f0e50, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3794714899451262913, guid: 0c636b33f07682f4da838587118f0e50, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -4992,6 +4996,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InventoryItemUSBKey
       objectReference: {fileID: 0}
+    - target: {fileID: 3590323259000947728, guid: 2abf5969b0af7d342b9695cc75025871, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 797d1f722dcc81749ac43bcf68734e4a, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
