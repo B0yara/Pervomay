@@ -1434,7 +1434,7 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: -3496959499963749693}
-    m_Duration: 8.766666666666667
+    m_Duration: 17.9
     m_TimeScale: 1
     m_ParentTrack: {fileID: 5347872680187936038}
     m_EaseInDuration: 0
@@ -1496,7 +1496,7 @@ MonoBehaviour:
     m_Recordable: 0
     m_PostExtrapolationMode: 1
     m_PreExtrapolationMode: 1
-    m_PostExtrapolationTime: 9.133333333333331
+    m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
     m_DisplayName: idle
   m_Markers:
