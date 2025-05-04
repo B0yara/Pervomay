@@ -35,6 +35,7 @@ public class PlayerEntity : Entity
     protected override void Start()
     {
         base.Start();
+        HPController.Init(maxHP);
         faction.factionType = Faction.FactionType.Player;
         faction.enemyMask = LayerMask.GetMask("Enemy");
     }
@@ -172,6 +173,6 @@ public class PlayerEntity : Entity
     }
     protected override void GetHp()
     {
-
+        HPController.SetValue(hp);
     }
 }
