@@ -1236,8 +1236,6 @@ GameObject:
   - component: {fileID: 813851243}
   - component: {fileID: 813851242}
   - component: {fileID: 813851241}
-  - component: {fileID: 813851240}
-  - component: {fileID: 813851239}
   - component: {fileID: 813851246}
   m_Layer: 0
   m_Name: Server
@@ -1246,54 +1244,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!54 &813851239
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 813851238}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
---- !u!65 &813851240
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 813851238}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.56034833, y: 1, z: 0.43838215}
-  m_Center: {x: -0.7806989, y: 0, z: -0.7181985}
 --- !u!65 &813851241
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1313,8 +1263,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 0.42987892}
-  m_Center: {x: 0, y: 0, z: -0.7242928}
+  m_Size: {x: 1.3679591, y: 1, z: 1.4539694}
+  m_Center: {x: -0.18397813, y: 0, z: -0.21224757}
 --- !u!65 &813851242
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1330,12 +1280,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5712347, y: 1, z: 1}
-  m_Center: {x: -0.7848973, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &813851243
 MeshRenderer:
   m_ObjectHideFlags: 0

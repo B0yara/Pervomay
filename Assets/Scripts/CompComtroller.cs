@@ -33,7 +33,6 @@ public class CompComtroller : MonoBehaviour
         Debug.Log("Enter comp");
         if (other.CompareTag("Player"))
         {
-
             CompHint.SetActive(true);
             _playerInTrigger = true;
         }
@@ -58,13 +57,17 @@ public class CompComtroller : MonoBehaviour
             Debug.Log("E pressed");
             CompHint.SetActive(false);
             PCPanel.SetActive(true);
+            Invoke("ForceUpdate", 0.01f);
             foreach (var item in DraggableItems)
             {
                 item.Init(this);
             }
         }
     }
-
+    void ForeUpdate()
+    {
+        PCPanel.GetComponent<RectTransform>().ForceUpdateRectTransforms();
+    }
     public void OnEndEdit(string password)
     {
         if (password == "1234")
@@ -88,7 +91,9 @@ public class CompComtroller : MonoBehaviour
             inv.RemoveItem(item);
         }
         inv.AddItem(BackupUsb);
-        PCPanel.SetActive(true);
+        PCPanel.SetActive(false);
+        BackupButton.SetActive(false);
+
     }
 
     internal void PlaceItem(Item item)
