@@ -5,6 +5,6 @@ public class MenuController : MonoBehaviour
 {
     public void Play()
     {
-        SceneManager.LoadScene("GriBOYrio1");
+        SceneManager.LoadScene("TempCutScene");
     }
 }
