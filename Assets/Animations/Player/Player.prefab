@@ -132,7 +132,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 125, y: -109}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5321187412193776357
 CanvasRenderer:
@@ -3138,8 +3138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f64b424615fdd244b895efd482e4fc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 100
-  hp: 100
+  maxHP: 200
+  hp: 200
   animator: {fileID: 32828875283436614}
   particleSystem: {fileID: 4056336375173109849}
   deathParticleSystem: {fileID: 0}
@@ -3464,23 +3464,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1525438388291159, guid: ff3d42605c25f8248bc91ee5fd3198a6, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 320
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 1525438388291159, guid: ff3d42605c25f8248bc91ee5fd3198a6, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 1525438388291159, guid: ff3d42605c25f8248bc91ee5fd3198a6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0000061035166
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1525438388291159, guid: ff3d42605c25f8248bc91ee5fd3198a6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 125
+      value: 172
       objectReference: {fileID: 0}
     - target: {fileID: 1525438388291159, guid: ff3d42605c25f8248bc91ee5fd3198a6, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -85
+      value: -71.3
       objectReference: {fileID: 0}
     - target: {fileID: 2064520629462650154, guid: ff3d42605c25f8248bc91ee5fd3198a6, type: 3}
       propertyPath: m_UiScaleMode

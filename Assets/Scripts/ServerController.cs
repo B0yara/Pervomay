@@ -6,7 +6,7 @@ public class ServerController : MonoBehaviour
     private const string LOAD_VIRUS = "Загрузить вирус 'E'";
     private const string NEED_VIRUS = "Нужен вирус";
     private const string VIRUS_LOADED = "ВИРУС ЗАГРУЖЕН!";
-    private const string TO_BABKA = "ХЗ что это такое";
+    private const string TO_BABKA = "Я не имею представление что это";
 
     [SerializeField]
     TMP_Text DialogHint;
