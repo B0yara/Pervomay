@@ -11,19 +11,12 @@ public class Entity : _CanDamage
     public float rotationSpeed = 10f;
     public float gravity = -9.81f;
 
-    [Header("Animation Settings")]
-    public string moveAnimParam = "Run";
-    public string groundedAnimParam = "Null";
-    public string deathAnimParam = "Die";
-
     [Header("Combat Settings")]
     public float detectionRange = 10f;
     public float attackRange = 1f;
     public float attackRate = 1f;
     public int attackDamage = 10;
-    public Projectile projectilePrefab;
-    public Transform attackPoint;
-
+    
 
 
     public CharacterController controller;
@@ -132,11 +125,7 @@ public class Entity : _CanDamage
         nextAttackTime = Time.time + 1f / attackRate;
         StartAnimation(2);
     }
-    protected virtual void LaunchProjectile()
-    {
-        Projectile projectile = Instantiate(projectilePrefab, attackPoint.position, attackPoint.rotation);
-        projectile.Initialize(attackDamage, CurrentTarget, faction.enemyMask);
-    }
+    
     // ���������� �� �������� ����� (��� ���������)
     public virtual void OnAttackAnimationHit()
     {

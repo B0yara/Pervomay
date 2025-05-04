@@ -3,6 +3,8 @@ using UnityEngine;
 public class RangeEnemy : EntityEnemy
 {
     public float safeDistance = 5f;
+    public Projectile projectilePrefab;
+    public Transform attackPoint;
     protected override void HandleMovement()
     {
         if (CurrentTarget == null || animator.GetBool("Death")) return;
@@ -67,5 +69,10 @@ public class RangeEnemy : EntityEnemy
         isAttacking = false;
         Debug.Log($"RangeFire: {nextAttackTime}={Time.time + 1f / attackRate}");
         
+    }
+    protected virtual void LaunchProjectile()
+    {
+        Projectile projectile = Instantiate(projectilePrefab, attackPoint.position, attackPoint.rotation);
+        projectile.Initialize(attackDamage, CurrentTarget, faction.enemyMask);
     }
 }

@@ -99,8 +99,8 @@ public class PlayerEntity : Entity
             controller.Move(move * Time.deltaTime);
 
             // �������� ��������
-            if (animator != null)
-                animator.SetBool(moveAnimParam, direction.magnitude > 0.1f);
+            /*if (animator != null)
+                animator.SetBool(moveAnimParam, direction.magnitude > 0.1f);*/
         }
 
     }

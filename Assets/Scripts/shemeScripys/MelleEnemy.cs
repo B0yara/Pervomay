@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class MelleEnemy : EntityEnemy
 {
-    public Transform damagePoint;
     [SerializeField] GameObject damageZonePrefab;
     
     /// <summary>
