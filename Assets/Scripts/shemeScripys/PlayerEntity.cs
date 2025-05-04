@@ -38,7 +38,6 @@ public class PlayerEntity : Entity
         faction.factionType = Faction.FactionType.Player;
         faction.enemyMask = LayerMask.GetMask("Enemy");
     }
-
     protected override void Update()
     {
         base.Update();
@@ -122,8 +121,6 @@ public class PlayerEntity : Entity
             animator.SetBool("Attack", false);
         }
     }
-
-
     public void EndAttack()
     {
         animator.SetBool("Attack", false);
@@ -172,5 +169,15 @@ public class PlayerEntity : Entity
     protected override void OnDestroy()
     {
         base.OnDestroy();
+    }
+
+    protected override void GetDamage(int damage)
+    {
+        base.GetDamage(damage);
+    }
+
+    protected override int GetHp()
+    {
+        return hp;
     }
 }
