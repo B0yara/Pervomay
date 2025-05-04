@@ -10,6 +10,7 @@ public class Boss : Entity
 
     [SerializeField] private List<GameObject> enemies = new List<GameObject>();
     [SerializeField] private Transform SpawnPoint;
+    [SerializeField] private GameObject EndCanvas;
 
     protected override void Start()
     {
@@ -45,7 +46,7 @@ public class Boss : Entity
             {
                 Debug.Log("[Boss] Вирус есть");
                 animator.SetBool("EndDeath", true);
-                GameObject.Find("EndCanvas").SetActive(true);
+                EndCanvas.SetActive(true);
                 GameController.Instance.BossIsDeath();
                 GetComponent<Collider>().enabled = false;
                 GetComponent<CharacterController>().enabled = false;
