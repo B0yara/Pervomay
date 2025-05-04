@@ -24,6 +24,11 @@ public class SpawnZone : MonoBehaviour
 
     public void DestroyThis()
     {
+        EnemyController.Instance.UnregisterSpawns(gameObject);
         Destroy(gameObject);
+    }
+    public void Start()
+    {
+        EnemyController.Instance.RegisterSpawns(gameObject);
     }
 }
