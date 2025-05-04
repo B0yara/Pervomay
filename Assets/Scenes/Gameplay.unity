@@ -2605,8 +2605,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ca3d76bed229f4f479526c7b81da6632, type: 3}
       propertyPath: m_Name
-      value: Neutral Idle
+      value: Koshei
       objectReference: {fileID: 0}
+    - target: {fileID: 5299752446334504241, guid: ca3d76bed229f4f479526c7b81da6632, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f5cd02cfbe3c2394d930e37a1de93d44, type: 2}
+    - target: {fileID: 5299752446334504241, guid: ca3d76bed229f4f479526c7b81da6632, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3645a4833d076394babc5f0c5e7a94e5, type: 2}
+    - target: {fileID: 5299752446334504241, guid: ca3d76bed229f4f479526c7b81da6632, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8708e6e99390e754983f4d4d9f96900d, type: 2}
+    - target: {fileID: 5299752446334504241, guid: ca3d76bed229f4f479526c7b81da6632, type: 3}
+      propertyPath: 'm_Materials.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 02d01dc65a0dea842ad702d69a1e1a99, type: 2}
+    - target: {fileID: 5299752446334504241, guid: ca3d76bed229f4f479526c7b81da6632, type: 3}
+      propertyPath: 'm_Materials.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2100000, guid: abaec44802b1f094ebcf659f84cc6b01, type: 2}
+    - target: {fileID: 5299752446334504241, guid: ca3d76bed229f4f479526c7b81da6632, type: 3}
+      propertyPath: 'm_Materials.Array.data[5]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 02d01dc65a0dea842ad702d69a1e1a99, type: 2}
+    - target: {fileID: 5299752446334504241, guid: ca3d76bed229f4f479526c7b81da6632, type: 3}
+      propertyPath: 'm_Materials.Array.data[7]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6346b26fc56c34244900857cd76b1414, type: 2}
+    - target: {fileID: 5299752446334504241, guid: ca3d76bed229f4f479526c7b81da6632, type: 3}
+      propertyPath: 'm_Materials.Array.data[9]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3645a4833d076394babc5f0c5e7a94e5, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3914,10 +3946,10 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
-  - name: BG
-    clip: {fileID: 8300000, guid: 14eb5a8e9ed470544bcf7e5cc1672f2b, type: 3}
+  - name: BossMusic
+    clip: {fileID: 8300000, guid: dd9403bc47f68c64496dbec2d0b4c000, type: 3}
     mixerGroup: {fileID: -398407804671845229, guid: 3e7708f1845578d459a4d9195adf7585, type: 2}
-    volume: 0.8
+    volume: 0.59
     pitch: 1
     loop: 1
     playOnAwake: 1
