@@ -18,7 +18,7 @@ public class _CanDamage : MonoBehaviour
         hp = Mathf.Clamp(hp, 0, maxHP);
     }
 
-    public void GetDamage(int damage)
+    protected virtual void GetDamage(int damage)
     {
         if (canDamage)
         {

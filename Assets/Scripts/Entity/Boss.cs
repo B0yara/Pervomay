@@ -23,9 +23,14 @@ public class Boss : Entity
     {
         if (EnemyController.Instance.activeEnemies.Count <= 0)
         {
-            if (++stage > enemies.Count && stageEnd) stage = 0;
+            stageEnd = true;
+            if (++stage > enemies.Count && stageEnd) stage = -1;
             
-            StartStage(++stage);
+            if (stageEnd)
+            {
+                StartStage(++stage);
+            }
+            
         }
     }
     protected override void Die(float time)
@@ -58,8 +63,8 @@ public class Boss : Entity
     }
     protected virtual void StartStage(int stage)
     {
+        stageEnd = false;
         this.stage = stage;
-        stageEnd = true;
         if (stage > 3) stage = 1;
         switch (stage)
         {
