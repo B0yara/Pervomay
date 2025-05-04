@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class NewItemPopup : MonoBehaviour
 {
-    private const string PATH_MASK = "Icons/{0}";
+    private const string PATH_MASK = "Icons/{0}.png";
     [SerializeField]
     TMP_Text ItemName;
     [SerializeField]

@@ -2711,6 +2711,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 67.116
       objectReference: {fileID: 0}
+    - target: {fileID: 6413055608041378927, guid: 18dda4a209861aa40ad0d3cb70fd7033, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 797d1f722dcc81749ac43bcf68734e4a, type: 2}
     - target: {fileID: 7235224400630457700, guid: 18dda4a209861aa40ad0d3cb70fd7033, type: 3}
       propertyPath: m_Name
       value: FleshKa
