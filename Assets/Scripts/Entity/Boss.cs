@@ -38,7 +38,7 @@ public class Boss : Entity
     {
         if (GameController.Instance != null)
         {
-            if (GameController.Instance.VirusIsLoaded())
+            if (GameController.Instance.VirusLoaded)
             {
                 animator.SetBool("EndDeath", true);
                 GameObject.Find("EndCanvas").SetActive(true);
