@@ -5,7 +5,7 @@ using Unity.Mathematics;
 using UnityEngine;
 
 public class ProjectileController : MonoBehaviour
-{
+{   
     [SerializeField]
     GameObject BlooshPrefab;
     //private AudioSource audioSource;
@@ -51,22 +51,6 @@ public class ProjectileController : MonoBehaviour
                 }
             }
             Instantiate(BlooshPrefab, other.transform.position, Quaternion.identity, other.gameObject.transform);
-            Destroy(gameObject);
-        }
-    }
-    private void OnCollisionEnter(Collision other)
-    {
-        Debug.Log("Im Find Collision");
-        if (((1 << other.gameObject.layer) & targetLayer) != 0)
-        {
-            if (other.transform == target)
-            {
-                if (target.TryGetComponent<_CanDamage>(out var damageable))
-                {
-                    damageable.GetDamage(damage);
-                }
-            }
-            Instantiate(BlooshPrefab, other.contacts[0].point, Quaternion.Euler(other.contacts[0].normal * -180), other.gameObject.transform);
             Destroy(gameObject);
         }
     }

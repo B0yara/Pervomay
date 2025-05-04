@@ -567,14 +567,11 @@ MonoBehaviour:
   attackRate: 1
   attackDamage: 10
   audioSource: {fileID: 9042205404922935412}
-  hitClip: {fileID: 8300000, guid: 65da590beb5e169448a8842b00f17c22, type: 3}
-  attackClip: {fileID: 8300000, guid: 2dd1cf1a19126fa419a2befa71dbb151, type: 3}
-  deathClip: {fileID: 8300000, guid: 8bab23ed5d7458d4c9d4a2e9d66832a8, type: 3}
   controller: {fileID: 7335548716563470048}
   currentTarget: {fileID: 0}
   isAttacking: 0
   safeDistance: 7
-  projectilePrefab: {fileID: 9058099336111429570, guid: cf0adae0173c000488f81a3a4f3a8598, type: 3}
+  projectilePrefab: {fileID: 6268782504263555733, guid: a7f30ccb6f3e5cb4190d6f1ed7401d56, type: 3}
   attackPoint: {fileID: 8953218845104568407}
 --- !u!82 &9042205404922935412
 AudioSource:

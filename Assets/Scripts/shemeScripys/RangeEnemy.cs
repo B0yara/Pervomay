@@ -3,7 +3,7 @@ using UnityEngine;
 public class RangeEnemy : EntityEnemy
 {
     public float safeDistance = 5f;
-    public Projectile projectilePrefab;
+    public ProjectileController projectilePrefab;
     public Transform attackPoint;
     protected override void HandleMovement()
     {
@@ -71,7 +71,7 @@ public class RangeEnemy : EntityEnemy
     }
     public virtual void LaunchProjectile()
     {
-        Projectile projectile = Instantiate(projectilePrefab, attackPoint.position, attackPoint.rotation);
+        ProjectileController projectile = Instantiate(projectilePrefab, attackPoint.position, attackPoint.rotation);
         projectile.Initialize(attackDamage, CurrentTarget, faction.enemyMask);
     }
 }
