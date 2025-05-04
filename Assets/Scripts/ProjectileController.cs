@@ -5,7 +5,7 @@ using Unity.Mathematics;
 using UnityEngine;
 
 public class ProjectileController : MonoBehaviour
-{   
+{
     [SerializeField]
     GameObject BlooshPrefab;
     //private AudioSource audioSource;
@@ -47,7 +47,7 @@ public class ProjectileController : MonoBehaviour
             {
                 if (target.TryGetComponent<_CanDamage>(out var damageable))
                 {
-                    damageable.GetDamage(damage);
+                    damageable.GetDamage(damage, true);
                 }
             }
             Instantiate(BlooshPrefab, other.transform.position, Quaternion.identity, other.gameObject.transform);

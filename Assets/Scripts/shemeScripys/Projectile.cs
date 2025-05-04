@@ -12,14 +12,14 @@ public class Projectile : MonoBehaviour
         this.damage = damage;
         this.target = target;
         this.targetLayer = targetLayer;
-        Destroy(gameObject, 5f); // Автоуничтожение через 5 сек
+        Destroy(gameObject, 5f); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ 5 пїЅпїЅпїЅ
     }
 
     private void Update()
     {
         if (target != null)
         {
-            // Летим прямо вперед (не преследуем цель)
+            // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ)
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
         }
         else
@@ -37,7 +37,7 @@ public class Projectile : MonoBehaviour
             {
                 if (target.TryGetComponent<_CanDamage>(out var damageable))
                 {
-                    damageable.GetDamage(damage);
+                    damageable.GetDamage(damage, true);
                 }
             }
             Destroy(gameObject);
@@ -52,7 +52,7 @@ public class Projectile : MonoBehaviour
             {
                 if (target.TryGetComponent<_CanDamage>(out var damageable))
                 {
-                    damageable.GetDamage(damage);
+                    damageable.GetDamage(damage, true);
                 }
             }
             Destroy(gameObject);
