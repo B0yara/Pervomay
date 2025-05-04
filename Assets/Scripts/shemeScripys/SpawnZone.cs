@@ -21,4 +21,9 @@ public class SpawnZone : MonoBehaviour
     {
         _spawnSystem.Play();
     }
+
+    public void DestroyThis()
+    {
+        Destroy(gameObject);
+    }
 }
