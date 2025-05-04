@@ -1,15 +1,23 @@
+using System;
 using UnityEngine;
 
 public class ModelColorChanger : MonoBehaviour
 {
-    [SerializeField] private Color color = Color.white;  // Поле появится в инспекторе
-    [SerializeField] private Renderer modelRenderer;    // Перетащите сюда Renderer
+    [SerializeField] private Color color = Color.white;  // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+    [SerializeField] private Renderer modelRenderer;    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ Renderer
 
-    private void OnValidate()  // Автоматически вызывается при изменении в инспекторе
+    private void OnValidate()  // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     {
         if (modelRenderer != null)
         {
-            modelRenderer.material.color = color;
+            try
+            {
+                modelRenderer.materials[0].color = color;
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning("[ModelColor] OnValidate " + e.StackTrace);
+            }
         }
     }
 }

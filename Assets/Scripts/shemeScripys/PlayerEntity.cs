@@ -41,8 +41,8 @@ public class PlayerEntity : Entity
     }
     protected override void Update()
     {
-        base.Update();
         if (isDead) return;
+        base.Update();
 
         GetInput();
         if (!isDashing)

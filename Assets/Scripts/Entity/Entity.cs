@@ -19,7 +19,7 @@ public class Entity : _CanDamage
     public float attackRate = 1f;
     public int attackDamage = 10;
 
-    
+
     [Header("Audio Clips"), Space]
     public AudioSource audioSource;
 
@@ -65,6 +65,13 @@ public class Entity : _CanDamage
         HandleGravity();
         HandleMovement();
     }
+
+    protected override void Die(float time)
+    {
+        base.Die(time);
+        isDead = true;
+    }
+
     protected virtual void UpdateAI()
     {
         FindTarget();
@@ -135,7 +142,7 @@ public class Entity : _CanDamage
         nextAttackTime = Time.time + 1f / attackRate;
         StartAnimation(2);
     }
-    
+
     private void OnDrawGizmosSelected()
     {
         if (CurrentTarget != null)
@@ -185,6 +192,7 @@ public class Entity : _CanDamage
         }
 
         velocity.y += gravity * Time.deltaTime;
+
         controller.Move(velocity * Time.deltaTime);
     }
     public void StartAnimation(int animNumber)

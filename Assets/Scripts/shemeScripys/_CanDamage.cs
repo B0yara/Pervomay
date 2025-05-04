@@ -69,17 +69,17 @@ public class _CanDamage : MonoBehaviour
         // �������� �� ������
         if (hp <= 0)
         {
+            animator.SetInteger("Hp", 0);
+            hp = 0;
+            Die(2f);
             try
             {
-                animator.SetInteger("Hp", 0);
                 deathParticleSystem.Play();
-                Die(2f); // 2 ������� - ��������� ����� ��� �������� 
             }
             catch
             {
-                Debug.Log("������ ��������");
+                Debug.Log("[_canDamage] No Particle System on object" + gameObject.name);
             }
-            hp = 0;
 
         }
     }
