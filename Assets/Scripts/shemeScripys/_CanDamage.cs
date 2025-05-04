@@ -25,8 +25,15 @@ public class _CanDamage : MonoBehaviour
             if (hp > 0)
             {
                 animator.SetBool("TakeDamage", true);
+                try
+                {
+                    particleSystem.Play();
+                }
+                catch
+                {
+                    Debug.LogWarning("[Boss] No particle system");
+                }
 
-                particleSystem.Play();
                 hp -= damage;
                 GetHp();
             }
