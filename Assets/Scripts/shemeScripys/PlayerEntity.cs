@@ -8,7 +8,6 @@ using UnityEngine.InputSystem;
 public class PlayerEntity : Entity
 {
     [Header("Player Controls")]
-    private float nextActionTime = 0f;
     public float interval = 5f;
 
     public KeyCode attackKey = KeyCode.Z;
